@@ -1,0 +1,6 @@
+{
+  "greetings": "Hello World!",
+  "footer": {
+    "copyright": "Copyright Ⓒ {{year}} makaDev Patryk Makarewicz"
+  }
+}

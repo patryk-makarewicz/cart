@@ -1,0 +1,24 @@
+{
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "jsxBracketSameLine": true,
+  "importOrderSeparation": true,
+  "importOrder": [
+    "^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "@api/(.*)$",
+    "@hooks/(.*)$",
+    "@pages/(.*)$",
+    "@components/(.*)$",
+    "@utils/(.*)$",
+    "@translations/(.*)$",
+    "@helpers/(.*)$",
+    "@assets/(.*)$",
+    "@layout/(.*)$",
+    "@styles/(.*)$",
+    "@[./]"
+  ]
+}
