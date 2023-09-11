@@ -1,7 +1,9 @@
-import '../../styles/globals.scss';
 import { dir } from 'i18next';
 import { languages } from '../i18n/settings';
 import { Inter } from 'next/font/google';
+import GlobalStyles from '@/styles/GlobalStyles';
+import StyledComponentsRegistry from '@/lib/registry';
+import '../../styles/tailwind.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,14 +19,19 @@ export async function generateStaticParams() {
 type RootLayoutProps = {
   children: React.ReactNode;
   params: {
-    lng: any;
+    lng: string;
   };
 };
 
 export default function RootLayout({ children, params: { lng } }: RootLayoutProps) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StyledComponentsRegistry>
+          <GlobalStyles />
+          {children}
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
