@@ -18,7 +18,10 @@ const customJestConfig = {
     '!<rootDir>/**/*.model.*',
     '!<rootDir>/**/*.styles.*',
     '!<rootDir>/**/*.d.ts',
+    '!<rootDir>/**/layout.*',
     '!<rootDir>/api/**/*',
+    '!<rootDir>/lib/**/*',
+    '!<rootDir>/styles/**/*',
     '!<rootDir>/tests/**/*'
   ]
 };
