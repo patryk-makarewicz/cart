@@ -20,5 +20,6 @@
     "@layout/(.*)$",
     "@styles/(.*)$",
     "@[./]"
-  ]
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
