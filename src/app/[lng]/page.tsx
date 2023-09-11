@@ -13,7 +13,7 @@ export default async function Home({ params: { lng } }: lngProps) {
   const { t } = await useTranslation(lng);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>{t('greetings')} - Home Page</h1>
       <Link href={`/${lng}/second-page`}>second page</Link>
       <Link href={`/${lng}/client-page`}>client page</Link>
@@ -28,6 +28,6 @@ export default async function Home({ params: { lng } }: lngProps) {
           priority
         />
       </div>
-    </main>
+    </div>
   );
 }

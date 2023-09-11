@@ -9,7 +9,21 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Cart App',
-  description: 'This is app to manage cart'
+  description: 'This is app to manage cart',
+  category: 'frontend',
+  keywords: ['next.js', 'react', 'typescript'],
+  openGraph: {
+    title: 'Cart App',
+    description: 'This is app to manage cart',
+    images: ['/next.svg', '/vercel.svg'],
+    url: 'https://www.url.com',
+    siteName: 'Cart App'
+  },
+  metadataBase: new URL('https://www.url.com'),
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.jpg'
+  }
 };
 
 export async function generateStaticParams() {
@@ -29,7 +43,9 @@ export default function RootLayout({ children, params: { lng } }: RootLayoutProp
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          {children}
+          <header>Header</header>
+          <main>{children}</main>
+          <footer>Footer</footer>
         </StyledComponentsRegistry>
       </body>
     </html>
