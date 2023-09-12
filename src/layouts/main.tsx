@@ -1,8 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import * as Styled from './main.styled';
 import LoadingOnStart from '@/utils/loadingOnStart';
+
+import styled from 'styled-components';
+
+const Content = styled.div`
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  visibility: visible;
+  animation: fadeIn 0.5s;
+`;
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [isLoadingApp, setIsLoadingApp] = useState(true);
@@ -18,11 +33,11 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <Styled.Content>
+    <Content>
       <header>Header</header>
       <main>{children}</main>
       <footer>Footer</footer>
-    </Styled.Content>
+    </Content>
   );
 };
 
