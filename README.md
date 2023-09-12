@@ -1,4 +1,4 @@
-<!-- ![cover](./public/cover.png) -->
+![cover](./public/cover.png)
 
 # General info
 
@@ -14,6 +14,7 @@ This is the website to manage cart.
 ✔ React Query<br />
 ✔ AirTable<br />
 ✔ React Testing Library<br />
+✔ Styled Components<br />
 ✔ Tailwind<br />
 
 <!-- ## Link to website

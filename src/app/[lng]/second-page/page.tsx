@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next/TransWithoutContext';
 import { languages } from '../../i18n/settings';
 import { lngProps } from '../page';
 
-export default async function SecondPage({ params: { lng } }: lngProps) {
+const SecondPage = async ({ params: { lng } }: lngProps) => {
   const { t } = await useTranslation(lng);
 
   return (
@@ -31,4 +31,6 @@ export default async function SecondPage({ params: { lng } }: lngProps) {
       <Link href={`/${lng}`}>back</Link>
     </>
   );
-}
+};
+
+export default SecondPage;
