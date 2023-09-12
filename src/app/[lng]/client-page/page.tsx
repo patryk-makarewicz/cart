@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { lngProps } from '../page';
 import { Button } from '@/components/button/button';
 
-export default function Page({ params: { lng } }: lngProps) {
+const ClientPage = ({ params: { lng } }: lngProps) => {
   const { t } = useTranslation(lng);
   const [counter, setCounter] = useState(0);
 
@@ -28,4 +28,6 @@ export default function Page({ params: { lng } }: lngProps) {
       </Link>
     </>
   );
-}
+};
+
+export default ClientPage;
