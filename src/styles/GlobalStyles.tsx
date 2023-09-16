@@ -18,6 +18,8 @@ body {
   padding: 0;
   margin: 0;
   font-size: ${pxToRem('16px')};
+  background-color: #f8fafb;
+  color: #404040;
   input,
   textarea,
   button,
@@ -34,7 +36,7 @@ a {
 
 :root {
   --text-color: #242424;
-  --background-color: #ffffff;
+  --background-color: #f8fafb;
   --background-secondary-color: #ffffff;
   --border-color: #e5e5e5;
 }

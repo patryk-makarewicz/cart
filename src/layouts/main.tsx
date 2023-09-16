@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import LoadingOnStart from '@/utils/loadingOnStart';
 
 import styled from 'styled-components';
+import Header from '@/components/header';
 
 const Content = styled.div`
   @keyframes fadeIn {
@@ -34,7 +35,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Content>
-      <header>Header</header>
+      <Header />
       <main>{children}</main>
       <footer>Footer</footer>
     </Content>
