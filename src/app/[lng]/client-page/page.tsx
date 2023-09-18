@@ -12,7 +12,7 @@ const ClientPage = ({ params: { lng } }: lngProps) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    console.log('dupa');
+    console.log('use client page');
   }, []);
   return (
     <>
@@ -24,7 +24,7 @@ const ClientPage = ({ params: { lng } }: lngProps) => {
         <button onClick={() => setCounter(Math.min(10, counter + 1))}>+</button>
       </div>
       <Link href={`/${lng}`}>
-        <Button label={t('back-to-home')} />
+        <Button label={t('Back to Home')} />
       </Link>
     </>
   );

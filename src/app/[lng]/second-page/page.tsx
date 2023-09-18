@@ -28,6 +28,7 @@ const SecondPage = async ({ params: { lng } }: lngProps) => {
             );
           })}
       </h3>
+
       <Link href={`/${lng}`}>back</Link>
     </>
   );

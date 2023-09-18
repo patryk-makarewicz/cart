@@ -2,7 +2,6 @@ import { colors, shadow } from '@/styles';
 import styled from 'styled-components';
 
 export const Wrapper = styled.header`
-  color: #0278ab;
   background-color: ${colors.white};
   border-bottom: 1px solid ${colors.gray3};
 `;

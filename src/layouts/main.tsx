@@ -20,7 +20,12 @@ const Content = styled.div`
   animation: fadeIn 0.5s;
 `;
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+type MainLayoutProps = {
+  children: React.ReactNode;
+  lng: string;
+};
+
+const MainLayout = ({ children, lng }: MainLayoutProps) => {
   const [isLoadingApp, setIsLoadingApp] = useState(true);
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Content>
-      <Header />
+      <Header lng={lng} />
       <main>{children}</main>
       <footer>Footer</footer>
     </Content>

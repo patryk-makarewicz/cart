@@ -44,7 +44,7 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          <MainLayout>{children}</MainLayout>
+          <MainLayout lng={lng}>{children}</MainLayout>
         </StyledComponentsRegistry>
       </body>
     </html>
