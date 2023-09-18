@@ -19,6 +19,6 @@ export const FlagContainer = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid ${colors.gray3};
+  border: 2px solid ${colors.white};
   box-shadow: ${shadow.first};
 `;
