@@ -1,9 +1,9 @@
+import * as Styled from './button.styles';
+
 type CustomButtonProps = {
   label: string;
 };
 
 export type ButtonProps = CustomButtonProps & React.HTMLProps<HTMLButtonElement>;
 
-export const Button = ({ label }: ButtonProps) => {
-  return <button style={{ backgroundColor: 'yellow', padding: '10px 20px', borderRadius: '4px' }}>{label}</button>;
-};
+export const Button = ({ label }: ButtonProps) => <Styled.Button>{label}</Styled.Button>;
