@@ -42,7 +42,7 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
     <Content>
       <Header lng={lng} />
       <main>{children}</main>
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </Content>
   );
 };
