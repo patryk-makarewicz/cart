@@ -5,6 +5,7 @@ import LoadingOnStart from '@/utils/loadingOnStart';
 
 import styled from 'styled-components';
 import Header from '@/components/header';
+import Footer from '@/components/footer/footer';
 
 const Content = styled.div`
   @keyframes fadeIn {
@@ -42,7 +43,7 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
     <Content>
       <Header lng={lng} />
       <main>{children}</main>
-      {/* <footer>Footer</footer> */}
+      <Footer lng={lng} />
     </Content>
   );
 };
