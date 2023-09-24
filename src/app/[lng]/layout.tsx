@@ -1,9 +1,9 @@
 import { dir } from 'i18next';
 import { languages } from '../i18n/settings';
 import { Inter } from 'next/font/google';
-// import GlobalStyles from '@/styles/GlobalStyles';
+import GlobalStyles from '@/styles/globalStyles';
 import StyledComponentsRegistry from '@/lib/registry';
-import '../../styles/globals.css';
+import '../../styles/tailwind.css';
 import MainLayout from '@/layouts/main';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -43,7 +43,7 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
     <html lang={lng} dir={dir(lng)}>
       <body className={inter.className}>
         <StyledComponentsRegistry>
-          {/* <GlobalStyles /> */}
+          <GlobalStyles />
           <MainLayout lng={lng}>{children}</MainLayout>
         </StyledComponentsRegistry>
       </body>
