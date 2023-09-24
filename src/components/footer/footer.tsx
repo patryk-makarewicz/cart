@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Logo from '../../assets/logo_black.svg';
 import { useTranslation } from '@/app/i18n/client';
 
-const Footer = ({ lng }: { lng: string }) => {
+export const Footer = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const date = new Date();
   const year = date.getFullYear();
@@ -16,5 +16,3 @@ const Footer = ({ lng }: { lng: string }) => {
     </footer>
   );
 };
-
-export default Footer;

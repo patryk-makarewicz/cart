@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Button, ButtonProps } from './button';
+import { ButtonProps } from './button';
+import Button from './button';
 
-const renderButton = ({ label = 'Click me' }: Partial<ButtonProps> = {}) => {
-  const { getByText, getByTestId } = render(<Button label={label} />);
+const renderButton = ({ children = 'Click me' }: Partial<ButtonProps> = {}) => {
+  const { getByText, getByTestId } = render(<Button>{children}</Button>);
 
   return {
     getByText,

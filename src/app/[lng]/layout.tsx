@@ -1,7 +1,7 @@
 import { dir } from 'i18next';
 import { languages } from '../i18n/settings';
 import { Inter } from 'next/font/google';
-import GlobalStyles from '@/styles/GlobalStyles';
+import GlobalStyles from '@/styles/globalStyles';
 import StyledComponentsRegistry from '@/lib/registry';
 import '../../styles/tailwind.css';
 import MainLayout from '@/layouts/main';

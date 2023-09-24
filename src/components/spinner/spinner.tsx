@@ -1,5 +1,6 @@
+'use client';
+
 import { colors } from '@/styles';
-import * as Styled from './spinner.styles';
 
 type SpinnerProps = {
   width?: string;
@@ -8,13 +9,13 @@ type SpinnerProps = {
 
 export const Spinner = ({ width = '50px', height = '50px' }: SpinnerProps) => {
   return (
-    <Styled.Wrapper>
-      <Styled.Svg
+    <div className="flex h-full w-full items-center justify-center">
+      <svg
         data-testid="spinner"
         width={width}
         height={height}
         version="1.1"
-        className="spinner"
+        className="animate-spin"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -28,7 +29,7 @@ export const Spinner = ({ width = '50px', height = '50px' }: SpinnerProps) => {
 		22.4,8,40,8c17.6,0,32,14.4,32,32c0,1.1-0.9,2-2,2
 		s-2-0.9-2-2c0-15.4-12.6-28-28-28S12,24.6,12,40s12.6,
 		28,28,28c1.1,0,2,0.9,2,2S41.1,72,40,72z"></path>
-      </Styled.Svg>
-    </Styled.Wrapper>
+      </svg>
+    </div>
   );
 };
