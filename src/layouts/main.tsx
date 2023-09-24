@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import LoadingOnStart from '@/utils/loadingOnStart';
 
 import styled from 'styled-components';
-import Header from '@/components/header';
-import Footer from '@/components/footer/footer';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer/footer';
 
 const Content = styled.div`
   @keyframes fadeIn {

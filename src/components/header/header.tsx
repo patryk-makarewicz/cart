@@ -5,7 +5,7 @@ import FlagEn from '../../assets/lang_en.png';
 
 import Link from 'next/link';
 
-const Header = ({ lng }: { lng: string }) => (
+export const Header = ({ lng }: { lng: string }) => (
   <header className="border-b border-gray-200 bg-white">
     <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-2.5">
       <Image priority src={Logo} width={30} height={36} alt="Logo makaDev" />
@@ -23,5 +23,3 @@ const Header = ({ lng }: { lng: string }) => (
     </div>
   </header>
 );
-
-export default Header;
