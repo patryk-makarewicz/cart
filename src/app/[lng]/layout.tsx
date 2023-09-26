@@ -5,6 +5,7 @@ import GlobalStyles from '@/styles/globalStyles';
 import StyledComponentsRegistry from '@/lib/registry';
 import '../../styles/tailwind.css';
 import MainLayout from '@/layouts/main';
+import { ReduxProvider } from '@/redux/redux-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -44,7 +45,9 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          <MainLayout lng={lng}>{children}</MainLayout>
+          <MainLayout lng={lng}>
+            <ReduxProvider>{children}</ReduxProvider>
+          </MainLayout>
         </StyledComponentsRegistry>
       </body>
     </html>
