@@ -45,9 +45,9 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          <MainLayout lng={lng}>
-            <ReduxProvider>{children}</ReduxProvider>
-          </MainLayout>
+          <ReduxProvider>
+            <MainLayout lng={lng}>{children}</MainLayout>
+          </ReduxProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
