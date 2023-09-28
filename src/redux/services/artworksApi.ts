@@ -10,7 +10,7 @@ export const artworksApi = createApi({
     headers
   }),
   endpoints: (builder) => ({
-    getArtworks: builder.query<ArtworksListModel[], null>({
+    getArtworks: builder.query<ArtworksListModel, null>({
       query: () => '/artworks?view=default'
     })
   })
