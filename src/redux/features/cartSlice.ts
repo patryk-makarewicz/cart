@@ -1,8 +1,8 @@
-import { ArtworksModel } from '@/api/artworks/artworks.model';
+import { ArtworkModel } from '@/api/artworks/artworks.model';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type CartState = {
-  cart: ArtworksModel[];
+  cart: ArtworkModel[];
 };
 
 const initialState = {
@@ -14,7 +14,7 @@ export const cart = createSlice({
   initialState,
   reducers: {
     resetCart: () => initialState,
-    addToCart: (state, action: PayloadAction<ArtworksModel>) => {
+    addToCart: (state, action: PayloadAction<ArtworkModel>) => {
       state.cart.push(action.payload);
     }
   }
