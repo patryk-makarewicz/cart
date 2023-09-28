@@ -6,6 +6,7 @@ import { addToCart, resetCart } from '@/redux/features/cartSlice';
 
 export const ProductsList = ({ records }: ArtworksListModel) => {
   const dispatch = useAppDispatch();
+
   if (!records) {
     return <p>No data</p>;
   }

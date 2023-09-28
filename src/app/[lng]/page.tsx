@@ -1,21 +1,13 @@
 import Image from 'next/image';
 import Logo from '../../assets/logo_black.svg';
 import { useTranslation } from '../i18n';
-import { BASE_URL, headers } from '@/api/config';
-import { ArtworksListModel } from '@/api/artworks/artworks.model';
 import { ProductsList } from '@/components/products';
+import { getArtworks } from '@/api/artworks/artworks.api';
 
 export type lngProps = {
   params: {
     lng: string;
   };
-};
-
-const getArtworks = async (): Promise<ArtworksListModel> => {
-  const data = await fetch(`${BASE_URL}/artworks?view=default`, { headers, next: { revalidate: 0 } });
-  const artworks = await data.json();
-
-  return artworks;
 };
 
 const Home = async ({ params: { lng } }: lngProps) => {
