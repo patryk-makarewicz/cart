@@ -1,8 +1,8 @@
 'use client';
 
-import { ArtworksListModel } from '@/api/artworks/artworks.model';
+import { ArtworksListModel, CartModel } from '@/api/artworks/artworks.model';
 import { useAppDispatch } from '@/redux/hooks';
-import { addToCart, resetCart } from '@/redux/features/cartSlice';
+import { addToCart, removeFromCart, resetCart } from '@/redux/features/cartSlice';
 
 export const ProductsList = ({ records }: ArtworksListModel) => {
   const dispatch = useAppDispatch();
@@ -16,7 +16,8 @@ export const ProductsList = ({ records }: ArtworksListModel) => {
       <ul>
         {records.map((item) => (
           <li key={item.id}>
-            {item.fields.name} <button onClick={() => dispatch(addToCart(item))}>+</button>
+            {item.fields.name} <button onClick={() => dispatch(addToCart(item as CartModel))}>+</button>{' '}
+            <button onClick={() => dispatch(removeFromCart(item as CartModel))}>-</button>
           </li>
         ))}
       </ul>
