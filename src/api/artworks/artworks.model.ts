@@ -19,6 +19,6 @@ export type CartModel = ArtworkModel & {
   quantity: number;
 };
 
-export type ArtworksListModel = {
+export type ArtworksListDTO = {
   records: ArtworkModel[];
 };

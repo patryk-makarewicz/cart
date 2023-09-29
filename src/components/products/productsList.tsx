@@ -1,10 +1,10 @@
 'use client';
 
-import { ArtworksListModel, CartModel } from '@/api/artworks/artworks.model';
+import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
 import { useAppDispatch } from '@/redux/hooks';
 import { addToCart, removeFromCart, resetCart } from '@/redux/features/cartSlice';
 
-export const ProductsList = ({ records }: ArtworksListModel) => {
+export const ProductsList = ({ records }: ArtworksListDTO) => {
   const dispatch = useAppDispatch();
 
   if (!records) {

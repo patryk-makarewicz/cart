@@ -1,4 +1,4 @@
-import { ArtworksListModel } from '@/api/artworks/artworks.model';
+import { ArtworksListDTO } from '@/api/artworks/artworks.model';
 import { BASE_URL, headers } from '@/api/config';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
@@ -10,7 +10,7 @@ export const artworksApi = createApi({
     headers
   }),
   endpoints: (builder) => ({
-    getArtworks: builder.query<ArtworksListModel, null>({
+    getArtworks: builder.query<ArtworksListDTO, null>({
       query: () => '/artworks?view=default'
     })
   })
