@@ -1,10 +1,18 @@
 import {
   ChatCompletionRequestMessage,
+  ChatCompletionRequestMessageFunctionCall,
+  ChatCompletionRequestMessageRoleEnum,
   Configuration,
   CreateChatCompletionRequest,
   CreateChatCompletionResponse,
   OpenAIApi
 } from 'openai';
+import { CallableFunction, GetInformationKind } from './callableFunctions';
+
+export type ChatResponse = null | {
+  content: null | string;
+  functionCall: null | ChatCompletionRequestMessageFunctionCall;
+};
 
 const parameters: CreateChatCompletionRequest = {
   n: 1,
@@ -13,7 +21,23 @@ const parameters: CreateChatCompletionRequest = {
   max_tokens: 256,
   stream: false,
   model: 'gpt-3.5-turbo',
-  messages: []
+  messages: [],
+  functions: [
+    {
+      name: CallableFunction.GetInformation,
+      description: 'Get artworks shop information when user asks for it.',
+      parameters: {
+        type: 'object',
+        properties: {
+          kind: {
+            type: 'string',
+            description: 'Type of information to get.',
+            enum: [GetInformationKind.OpeningHours, GetInformationKind.StationaryShop]
+          }
+        }
+      }
+    }
+  ]
 };
 
 const openAiConfig = {
@@ -21,11 +45,25 @@ const openAiConfig = {
   parameters
 };
 
-const extractFirstChoice = (data: CreateChatCompletionResponse): string | null =>
-  data?.choices?.[0]?.message?.content ?? null;
+const extractFirstChoice = (data: CreateChatCompletionResponse): ChatResponse => {
+  const firstChoice = data?.choices?.[0]?.message;
+
+  if (!firstChoice) {
+    return null;
+  }
+
+  return {
+    content: firstChoice.content ?? null,
+    functionCall: firstChoice.function_call ?? null
+  };
+};
 
 export class OpenAiChat {
-  private readonly openai = new OpenAIApi(new Configuration({ apiKey: openAiConfig.apiKey }));
+  private readonly openai = new OpenAIApi(
+    new Configuration({
+      apiKey: openAiConfig.apiKey
+    })
+  );
   private readonly messages: ChatCompletionRequestMessage[];
 
   constructor(system: string) {
@@ -37,10 +75,15 @@ export class OpenAiChat {
     ];
   }
 
-  async say(prompt: string): Promise<string> {
+  async say(
+    prompt: string,
+    role: ChatCompletionRequestMessageRoleEnum = ChatCompletionRequestMessageRoleEnum.User,
+    functionName?: string
+  ): Promise<ChatResponse> {
     this.messages.push({
-      role: 'user',
-      content: prompt
+      role,
+      content: prompt,
+      name: functionName
     });
 
     const { data } = await this.openai.createChatCompletion({
@@ -48,12 +91,14 @@ export class OpenAiChat {
       messages: this.messages
     });
 
-    const s = extractFirstChoice(data) ?? '';
+    const s = extractFirstChoice(data);
 
-    this.messages.push({
-      role: 'assistant',
-      content: s
-    });
+    if (s?.content) {
+      this.messages.push({
+        role: 'assistant',
+        content: s.content
+      });
+    }
 
     return s;
   }
