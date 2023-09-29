@@ -25,7 +25,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
       <div>
         <ProductsList records={artworks.records} />
       </div>
-      <Chatbot />
+      <Chatbot lng={lng} />
     </div>
   );
 };
