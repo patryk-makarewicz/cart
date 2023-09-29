@@ -45,6 +45,7 @@ export const Chatbot = ({ lng }: { lng: string }) => {
       subtitle={t('chat.subtitle')}
       senderPlaceHolder={t('chat.senderPlaceholder')}
       handleNewUserMessage={handleNewUserMessage}
+      showTimeStamp={false}
     />
   );
 };

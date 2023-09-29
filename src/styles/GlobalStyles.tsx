@@ -80,6 +80,10 @@ a {
 .rcw-header  {
   background-color: #0278ab !important;
 }
+
+.rcw-widget-container {
+  max-width: 370px;
+}
 `;
 
 export default GlobalStyles;
