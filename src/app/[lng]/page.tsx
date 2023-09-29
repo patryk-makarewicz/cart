@@ -3,6 +3,7 @@ import Logo from '../../assets/logo_black.svg';
 import { useTranslation } from '../i18n';
 import { ProductsList } from '@/components/products';
 import { getArtworks } from '@/api/artworks/artworks.api';
+import { Chatbot } from '@/components/chatbot';
 
 export type lngProps = {
   params: {
@@ -24,6 +25,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
       <div>
         <ProductsList records={artworks.records} />
       </div>
+      <Chatbot lng={lng} />
     </div>
   );
 };

@@ -62,6 +62,28 @@ a {
   select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
+
+//* react chat widget custom styles
+.rcw-launcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rcw-sender {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rcw-launcher,
+.rcw-conversation-container,
+.rcw-header  {
+  background-color: #0278ab !important;
+}
+
+.rcw-widget-container {
+  max-width: 370px;
+}
 `;
 
 export default GlobalStyles;

@@ -1,5 +1,12 @@
 {
   "greetings": "The application is under construction",
+
+  "chat": {
+    "title": "Shop assistant bot",
+    "subtitle": "How can I help you?",
+    "senderPlaceholder": "Type a message..."
+  },
+
   "footer": {
     "copyright": "Copyright Ⓒ {{year}} makaDev Patryk Makarewicz"
   }

@@ -1,5 +1,12 @@
 {
   "greetings": "Aplikacja jest w budowie",
+
+  "chat": {
+    "title": "Bot Asystent",
+    "subtitle": "W czym mogę Ci pomóc?",
+    "senderPlaceholder": "Napisz wiadomość..."
+  },
+
   "footer": {
     "copyright": "Copyright Ⓒ {{year}} makaDev Patryk Makarewicz"
   }
