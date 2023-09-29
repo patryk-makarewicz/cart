@@ -15,6 +15,7 @@ export const Header = ({ lng }: { lng: string }) => {
         <Image priority src={Logo} width={30} height={36} alt="Logo makaDev" />
         <div>
           <Link href={`/${lng}`}>Home Page </Link>
+          <Link href={`/${lng}/products`}>Products Page </Link>
           <Link href={`/${lng}/second-page`}>Second Page </Link>
           <Link href={`/${lng}/client-page`}>Client Page</Link>
         </div>

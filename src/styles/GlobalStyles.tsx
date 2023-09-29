@@ -84,6 +84,10 @@ a {
 .rcw-widget-container {
   max-width: 370px;
 }
+
+.rcw-client .rcw-message-text {
+  background-color: #dbeafe;
+}
 `;
 
 export default GlobalStyles;

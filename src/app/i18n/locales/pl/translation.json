@@ -1,6 +1,12 @@
 {
   "greetings": "Aplikacja jest w budowie",
 
+  "page": {
+    "home": {
+      "button": "Zaczynamy"
+    }
+  },
+
   "chat": {
     "title": "Bot Asystent",
     "subtitle": "W czym mogę Ci pomóc?",
