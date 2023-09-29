@@ -4,11 +4,10 @@ import FlagPl from '../../assets/lang_pl.png';
 import FlagEn from '../../assets/lang_en.png';
 
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/store';
+import { useAppSelector } from '@/redux/hooks';
 
 export const Header = ({ lng }: { lng: string }) => {
-  const cart = useSelector((state: RootState) => state.cartReducer.cart);
+  const cart = useAppSelector((state) => state.cartReducer.cart);
 
   return (
     <header className="border-b border-gray-200 bg-white">
@@ -19,7 +18,9 @@ export const Header = ({ lng }: { lng: string }) => {
           <Link href={`/${lng}/second-page`}>Second Page </Link>
           <Link href={`/${lng}/client-page`}>Client Page</Link>
         </div>
-        <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
+        <div>
+          <Link href={`/${lng}/cart`}>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</Link>
+        </div>
         <div className="h-8 w-8 rounded-full border-2 border-white drop-shadow-lg">
           {lng === 'pl' ? (
             <Link href={'/en'}>
