@@ -19,7 +19,7 @@ const CartPage = ({ params: { lng } }: lngProps) => {
         <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
       </h2>
       <h2>
-        <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price, 0)}$</div>
+        <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0)}$</div>
       </h2>
 
       <ul>
