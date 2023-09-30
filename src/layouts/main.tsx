@@ -6,7 +6,6 @@ import LoadingOnStart from '@/utils/loadingOnStart';
 import styled from 'styled-components';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer/footer';
-import { Chatbot } from '@/components/chatbot';
 
 const Content = styled.div`
   @keyframes fadeIn {
@@ -45,7 +44,6 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
       <Header lng={lng} />
       <main>{children}</main>
       <Footer lng={lng} />
-      <Chatbot lng={lng} />
     </Content>
   );
 };

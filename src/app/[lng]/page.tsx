@@ -3,6 +3,7 @@ import Logo from '../../assets/logo_black.svg';
 import { useTranslation } from '../i18n';
 import Link from 'next/link';
 import { Button } from '@/components/button';
+import { Chatbot } from '@/components/chatbot';
 
 export type lngProps = {
   params: {
@@ -22,6 +23,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
           <Button>{t('page.home.button')}</Button>
         </Link>
       </div>
+      <Chatbot lng={lng} />
     </div>
   );
 };
