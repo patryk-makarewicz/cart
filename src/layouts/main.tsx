@@ -42,7 +42,7 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
   return (
     <Content>
       <Header lng={lng} />
-      <main>{children}</main>
+      <main className="px-2.5">{children}</main>
       <Footer lng={lng} />
     </Content>
   );

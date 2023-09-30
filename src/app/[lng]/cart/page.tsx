@@ -4,12 +4,14 @@ import Link from 'next/link';
 
 import { lngProps } from '../page';
 import { RootState } from '@/redux/store';
-import { useAppSelector } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useTranslation } from '@/app/i18n/client';
 import { Button } from '@/components/button';
+import { resetCart } from '@/redux/features/cartSlice';
 
 const CartPage = ({ params: { lng } }: lngProps) => {
   const { t } = useTranslation(lng);
+  const dispatch = useAppDispatch();
   const cart = useAppSelector((state: RootState) => state.cartReducer.cart);
 
   return (
@@ -30,7 +32,9 @@ const CartPage = ({ params: { lng } }: lngProps) => {
         ))}
       </ul>
 
-      <Link href={`/${lng}`}>
+      <button onClick={() => dispatch(resetCart())}>reset cart</button>
+
+      <Link href={`/${lng}/products`}>
         <Button>Back</Button>
       </Link>
     </>
