@@ -1,4 +1,5 @@
 import { ArtworkModel, CartModel } from '@/api/artworks/artworks.model';
+import { Button } from '../button';
 
 type ProductsItemProps = {
   item: ArtworkModel;
@@ -19,16 +20,12 @@ export const ProductsItem = ({ item, handleAddToCart, handleRemoveFromCart }: Pr
           {item.fields.price} {item.fields.currency}
         </p>
         <div className="mb-2 flex justify-evenly">
-          <button
-            onClick={() => handleAddToCart(item as CartModel)}
-            className="h-8 w-8 rounded-full border border-sky-700 bg-white text-sky-700 transition duration-300 ease-in-out hover:bg-sky-50">
+          <Button kind="addOrRemove" onClick={() => handleAddToCart(item as CartModel)}>
             +
-          </button>
-          <button
-            onClick={() => handleRemoveFromCart(item as CartModel)}
-            className="h-8 w-8 rounded-full border border-sky-700 bg-white  text-sky-700 transition duration-300 ease-in-out hover:bg-sky-50">
+          </Button>
+          <Button kind="addOrRemove" onClick={() => handleRemoveFromCart(item as CartModel)}>
             -
-          </button>
+          </Button>
         </div>
       </div>
     </li>
