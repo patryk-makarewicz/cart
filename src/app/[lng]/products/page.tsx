@@ -10,7 +10,7 @@ const ProductsPage = async ({ params: { lng } }: lngProps) => {
 
   return (
     <>
-      <ProductsList records={artworks.records} />
+      <ProductsList products={artworks} lng={lng} />
       <Chatbot lng={lng} />
     </>
   );

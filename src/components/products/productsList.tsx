@@ -4,8 +4,15 @@ import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
 import { useAppDispatch } from '@/redux/hooks';
 import { addToCart, removeFromCart } from '@/redux/features/cartSlice';
 import { ProductsItem } from './productsItem';
+import { useTranslation } from '@/app/i18n/client';
 
-export const ProductsList = ({ records }: ArtworksListDTO) => {
+type ProductsListProps = {
+  products: ArtworksListDTO;
+  lng: string;
+};
+
+export const ProductsList = ({ products, lng }: ProductsListProps) => {
+  const { t } = useTranslation(lng);
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (item: CartModel) => {
@@ -16,15 +23,18 @@ export const ProductsList = ({ records }: ArtworksListDTO) => {
     dispatch(removeFromCart(item));
   };
 
-  if (!records) {
+  if (!products.records) {
     return <p>No data</p>;
   }
 
   return (
     <>
-      <h2 className="mb mt-3 text-xl font-semibold leading-7 text-gray-900">Photography / Premium Photos</h2>
+      <h2 className="mb text-xl font-semibold leading-7 text-gray-900">
+        {t('components.products.category')} /{' '}
+        <span className="font-normal text-gray-500">{t('components.products.subcategory')}</span>
+      </h2>
       <ul className="m-auto flex flex-wrap justify-center ">
-        {records.map((item) => (
+        {products.records.map((item) => (
           <ProductsItem item={item} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
         ))}
       </ul>

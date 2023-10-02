@@ -10,8 +10,8 @@ export const Header = ({ lng }: { lng: string }) => {
   const cart = useAppSelector((state) => state.cartReducer.cart);
 
   return (
-    <header className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-2.5">
+    <header className="mb-3 border-b border-gray-200 bg-white">
+      <div className="mx-auto flex max-w-screen-xl items-center justify-between p-2.5">
         <Image priority src={Logo} width={30} height={36} alt="Logo makaDev" />
         <div>
           <Link href={`/${lng}`}>Home Page </Link>

@@ -17,7 +17,7 @@ export const ProductsItem = ({ item, handleAddToCart, handleRemoveFromCart }: Pr
         </span>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{item.fields.name}</p>
         <p className="mb-2 text-base font-semibold leading-7 text-gray-900">
-          {item.fields.price} {item.fields.currency}
+          {item.fields.price.toFixed(2)} {item.fields.currency}
         </p>
         <div className="mb-2 flex justify-evenly">
           <Button kind="addOrRemove" onClick={() => handleAddToCart(item as CartModel)}>

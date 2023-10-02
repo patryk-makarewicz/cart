@@ -7,6 +7,13 @@
     }
   },
 
+  "components": {
+    "products": {
+      "category": "Photography",
+      "subcategory": "Premium Photos"
+    }
+  },
+
   "chat": {
     "title": "Shop assistant bot",
     "subtitle": "How can I help you?",

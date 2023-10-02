@@ -7,6 +7,13 @@
     }
   },
 
+  "components": {
+    "products": {
+      "category": "Fotografia",
+      "subcategory": "Zdjęcia Premium"
+    }
+  },
+
   "chat": {
     "title": "Bot Asystent",
     "subtitle": "W czym mogę Ci pomóc?",

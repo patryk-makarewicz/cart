@@ -27,7 +27,7 @@ const CartPage = ({ params: { lng } }: lngProps) => {
       <ul>
         {cart.map((item) => (
           <li key={item.id}>
-            {item.fields.name} - {item.fields.price}$ - {item.quantity}
+            {item.fields.name} - {item.fields.price.toFixed(2)}$ - {item.quantity}
           </li>
         ))}
       </ul>
