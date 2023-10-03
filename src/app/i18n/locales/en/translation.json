@@ -4,6 +4,14 @@
   "page": {
     "home": {
       "button": "Get started"
+    },
+    "cart": {
+      "title": "Your cart",
+      "resetCart": "Reset cart",
+      "back": "Back to products",
+      "itemsInCart": "Items in cart",
+      "totalPrice": "Total price",
+      "items": "Items"
     }
   },
 

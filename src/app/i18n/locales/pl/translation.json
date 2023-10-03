@@ -4,6 +4,14 @@
   "page": {
     "home": {
       "button": "Zaczynamy"
+    },
+    "cart": {
+      "title": "Twój koszyk",
+      "resetCart": "Wyczyść koszyk",
+      "back": "Powrót do produktów",
+      "itemsInCart": "Ilość w koszyku",
+      "totalPrice": "Cena całkowita",
+      "items": "Ilość"
     }
   },
 

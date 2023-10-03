@@ -17,26 +17,42 @@ const CartPage = ({ params: { lng } }: lngProps) => {
   return (
     <>
       <div className="flex flex-col items-center">
-        <h1>{t('greetings')} - cart page!</h1>
-        <h2>
-          <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
-        </h2>
-        <h2>
-          <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0)}$</div>
-        </h2>
+        <h2 className="mb-3 text-xl font-semibold leading-7 text-gray-900">{t('page.cart.title')}</h2>
 
-        <ul>
+        <ul className="mb-3 flex w-96 flex-col rounded-md border border-gray-200 bg-white px-3 pt-3">
           {cart.map((item) => (
-            <li key={item.id}>
-              {item.fields.name} - {item.fields.price.toFixed(2)}$ - {item.quantity}
+            <li key={item.id} className="mb-3 flex items-center">
+              <img
+                src={item.fields.imageSrc}
+                alt={item.fields.imageAlt}
+                className="mr-3 h-20 w-16 rounded-sm object-cover"
+              />
+              <div>
+                <p className="mt max-w-2xl text-sm leading-6 text-gray-500">{item.fields.name}</p>
+                <p className="mb text-base font-semibold leading-6 text-gray-900">
+                  {item.fields.price.toFixed(2)}$ {item.fields.currency}
+                </p>
+                <p className="text-base leading-6 text-gray-900">
+                  {t('page.cart.items')}: {item.quantity}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
 
-        <button onClick={() => dispatch(resetCart())}>reset cart</button>
+        <div className="mb-5 mt-3 flex w-96 flex-col items-center rounded-md border border-gray-200 bg-white px-3 pb-5 pt-3 font-semibold leading-7 text-gray-500">
+          <p>
+            {t('page.cart.itemsInCart')}: {cart.reduce((acc, current) => acc + current.quantity, 0)}
+          </p>
+          <p className="mb-3">
+            {t('page.cart.totalPrice')}:{' '}
+            {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0).toFixed(2)}$
+          </p>
+          <Button onClick={() => dispatch(resetCart())}>{t('page.cart.resetCart')}</Button>
+        </div>
 
         <Link href={`/${lng}/products`}>
-          <Button>Back</Button>
+          <Button>{t('page.cart.back')}</Button>
         </Link>
       </div>
     </>
