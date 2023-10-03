@@ -30,8 +30,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: create cart item list component
-//TODO: create cart summary paragraphs
 //TODO: add empty cart style / icon
 //TODO: add in cart view add or remove item from cart
 //TODO: send cart -> basic solution console.log it

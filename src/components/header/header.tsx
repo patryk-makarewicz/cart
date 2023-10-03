@@ -21,14 +21,6 @@ export const Header = ({ lng }: { lng: string }) => {
     {
       href: `/${lng}/products`,
       label: `${t('components.navigation.products')}`
-    },
-    {
-      href: `/${lng}/second-page`,
-      label: `Second Test`
-    },
-    {
-      href: `/${lng}/client-page`,
-      label: `Client Test`
     }
   ];
 
@@ -41,7 +33,6 @@ export const Header = ({ lng }: { lng: string }) => {
           </Link>
           <Navigation pages={pages} />
         </div>
-
         <div className="flex items-center">
           <Link href={`/${lng}/cart`} className=" relative mr-5">
             <Image priority src={CartIcon} alt="Cart icon" className="mt-1" />
@@ -51,7 +42,6 @@ export const Header = ({ lng }: { lng: string }) => {
               </div>
             )}
           </Link>
-
           <div className="h-8 w-8 rounded-full border-2 border-white drop-shadow-lg">
             {lng === 'pl' ? (
               <Link href={'/en'}>
