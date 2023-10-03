@@ -29,3 +29,15 @@ const Home = async ({ params: { lng } }: lngProps) => {
 };
 
 export default Home;
+
+//TODO: add basic styles to cart
+//TODO: send cart -> basic solution console.log it
+//TODO: show loader when is fetching data from api
+//TODO: show loader on change page
+//TODO: add animation on change page
+//TODO: pass items as children
+//TODO: add sorting list
+//TODO: add filtering list
+//TODO: add terms and cookies
+//TODO: improvement UI
+//TODO: add log in/out

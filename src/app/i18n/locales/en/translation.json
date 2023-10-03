@@ -8,6 +8,10 @@
   },
 
   "components": {
+    "navigation": {
+      "home": "Home",
+      "products": "Products"
+    },
     "products": {
       "category": "Photography",
       "subcategory": "Premium Photos"

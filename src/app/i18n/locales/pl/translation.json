@@ -8,6 +8,10 @@
   },
 
   "components": {
+    "navigation": {
+      "home": "Home",
+      "products": "Produkty"
+    },
     "products": {
       "category": "Fotografia",
       "subcategory": "Zdjęcia Premium"
