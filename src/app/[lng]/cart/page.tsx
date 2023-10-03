@@ -16,27 +16,29 @@ const CartPage = ({ params: { lng } }: lngProps) => {
 
   return (
     <>
-      <h1>{t('greetings')} - cart page!</h1>
-      <h2>
-        <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
-      </h2>
-      <h2>
-        <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0)}$</div>
-      </h2>
+      <div className="flex flex-col items-center">
+        <h1>{t('greetings')} - cart page!</h1>
+        <h2>
+          <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
+        </h2>
+        <h2>
+          <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0)}$</div>
+        </h2>
 
-      <ul>
-        {cart.map((item) => (
-          <li key={item.id}>
-            {item.fields.name} - {item.fields.price.toFixed(2)}$ - {item.quantity}
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {cart.map((item) => (
+            <li key={item.id}>
+              {item.fields.name} - {item.fields.price.toFixed(2)}$ - {item.quantity}
+            </li>
+          ))}
+        </ul>
 
-      <button onClick={() => dispatch(resetCart())}>reset cart</button>
+        <button onClick={() => dispatch(resetCart())}>reset cart</button>
 
-      <Link href={`/${lng}/products`}>
-        <Button>Back</Button>
-      </Link>
+        <Link href={`/${lng}/products`}>
+          <Button>Back</Button>
+        </Link>
+      </div>
     </>
   );
 };

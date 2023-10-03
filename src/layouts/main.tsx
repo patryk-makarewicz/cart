@@ -40,9 +40,9 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
   }
 
   return (
-    <Content>
+    <Content className="flex h-screen flex-col">
       <Header lng={lng} />
-      <main className="m-auto max-w-screen-xl px-2.5">{children}</main>
+      <main className="m-auto flex max-w-screen-xl flex-1 overflow-y-auto p-2.5">{children}</main>
       <Footer lng={lng} />
     </Content>
   );

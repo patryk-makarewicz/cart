@@ -8,11 +8,9 @@ import { useTranslation } from '@/app/i18n/client';
 
 type ProductsListProps = {
   products: ArtworksListDTO;
-  lng: string;
 };
 
-export const ProductsList = ({ products, lng }: ProductsListProps) => {
-  const { t } = useTranslation(lng);
+export const ProductsList = ({ products }: ProductsListProps) => {
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (item: CartModel) => {
@@ -28,16 +26,10 @@ export const ProductsList = ({ products, lng }: ProductsListProps) => {
   }
 
   return (
-    <>
-      <h2 className="mb text-xl font-semibold leading-7 text-gray-900">
-        {t('components.products.category')} /{' '}
-        <span className="font-normal text-gray-500">{t('components.products.subcategory')}</span>
-      </h2>
-      <ul className="m-auto flex flex-wrap justify-center ">
-        {products.records.map((item) => (
-          <ProductsItem item={item} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
-        ))}
-      </ul>
-    </>
+    <ul className="flex flex-wrap justify-center">
+      {products.records.map((product) => (
+        <ProductsItem product={product} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
+      ))}
+    </ul>
   );
 };
