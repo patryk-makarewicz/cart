@@ -11,7 +11,8 @@
       "back": "Powrót do produktów",
       "itemsInCart": "Ilość w koszyku",
       "totalPrice": "Cena całkowita",
-      "items": "Ilość"
+      "items": "Ilość",
+      "empty": "Brak produktów"
     }
   },
 

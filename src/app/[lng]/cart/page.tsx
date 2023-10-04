@@ -19,11 +19,9 @@ const CartPage = ({ params: { lng } }: lngProps) => {
     <>
       <div className="flex flex-col items-center">
         <h2 className="mb-3 text-xl font-semibold leading-7 text-gray-900">{t('page.cart.title')}</h2>
-
-        {cart.length > 0 && <CartList cart={cart} lng={lng} />}
+        <CartList cart={cart} lng={lng} />
         <Summary cart={cart} lng={lng} />
-
-        <Link href={`/${lng}/products`}>
+        <Link href={`/${lng}/products`} className="pb-6">
           <Button>{t('page.cart.back')}</Button>
         </Link>
       </div>
