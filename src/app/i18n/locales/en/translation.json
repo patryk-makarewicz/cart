@@ -23,7 +23,8 @@
     },
     "products": {
       "category": "Photography",
-      "subcategory": "Premium Photos"
+      "subcategory": "Premium Photos",
+      "noData": "No data"
     }
   },
 

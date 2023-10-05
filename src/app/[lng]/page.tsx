@@ -15,7 +15,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
   const { t } = await useTranslation(lng);
 
   return (
-    <div className=" flex flex-col items-center justify-between">
+    <div className=" flex w-full">
       <div className="m-auto flex flex-col items-center text-center text-xl font-semibold">
         <Image priority src={Logo} width={30} height={36} alt="Logo makaDev" className="my-3" />
         {t('greetings')}

@@ -8,9 +8,11 @@ import { useTranslation } from '@/app/i18n/client';
 
 type ProductsListProps = {
   products: ArtworksListDTO;
+  lng: string;
 };
 
-export const ProductsList = ({ products }: ProductsListProps) => {
+export const ProductsList = ({ products, lng }: ProductsListProps) => {
+  const { t } = useTranslation(lng);
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (item: CartModel) => {
@@ -21,8 +23,12 @@ export const ProductsList = ({ products }: ProductsListProps) => {
     dispatch(removeFromCart(item));
   };
 
-  if (!products.records) {
-    return <p>No data</p>;
+  if (!products.records || products.records.length === 0) {
+    return (
+      <div className=" mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+        <p className="text-sm font-medium">{t('components.products.noData')}</p>
+      </div>
+    );
   }
 
   return (

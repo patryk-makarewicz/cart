@@ -10,9 +10,9 @@ const ProductsPage = async ({ params: { lng } }: lngProps) => {
   const artworks = await getArtworks();
 
   return (
-    <div className="flex flex-col">
+    <div className="mx-auto flex w-full flex-col">
       <Category category={t('components.products.category')} subcategory={t('components.products.subcategory')} />
-      <ProductsList products={artworks} />
+      <ProductsList products={artworks} lng={lng} />
       <Chatbot lng={lng} />
     </div>
   );

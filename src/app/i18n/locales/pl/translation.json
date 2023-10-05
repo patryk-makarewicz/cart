@@ -23,7 +23,8 @@
     },
     "products": {
       "category": "Fotografia",
-      "subcategory": "Zdjęcia Premium"
+      "subcategory": "Zdjęcia Premium",
+      "noData": "Brak danych"
     }
   },
 
