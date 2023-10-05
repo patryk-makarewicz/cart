@@ -33,12 +33,9 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: show loader on change page
-//TODO: add animation on change page
 //TODO: add in cart view add or remove item from cart
 //TODO: send cart -> basic solution console.log it
 //TODO: products list - show big photo and bestsellers
-//----------------------------------------------------
 //TODO: remove error from console (react widget)
 //TODO: add sorting list
 //TODO: add filtering list
