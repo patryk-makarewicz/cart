@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import LoadingOnStart from '@/utils/loadingOnStart';
 
 import styled from 'styled-components';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer/footer';
+import Loading from '@/app/[lng]/loading';
 
 const Content = styled.div`
   @keyframes fadeIn {
@@ -40,9 +41,11 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
   }
 
   return (
-    <Content>
+    <Content className="flex h-screen flex-col">
       <Header lng={lng} />
-      <main>{children}</main>
+      <Suspense fallback={<Loading />}>
+        <main className="m-auto flex w-full max-w-screen-xl flex-1 overflow-y-auto p-2.5">{children}</main>
+      </Suspense>
       <Footer lng={lng} />
     </Content>
   );

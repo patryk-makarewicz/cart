@@ -1,27 +1,41 @@
 'use client';
 
-import { ArtworksListModel, CartModel } from '@/api/artworks/artworks.model';
+import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
 import { useAppDispatch } from '@/redux/hooks';
-import { addToCart, removeFromCart, resetCart } from '@/redux/features/cartSlice';
+import { addToCart, removeFromCart } from '@/redux/features/cartSlice';
+import { ProductsItem } from './productsItem';
+import { useTranslation } from '@/app/i18n/client';
 
-export const ProductsList = ({ records }: ArtworksListModel) => {
+type ProductsListProps = {
+  products: ArtworksListDTO;
+  lng: string;
+};
+
+export const ProductsList = ({ products, lng }: ProductsListProps) => {
+  const { t } = useTranslation(lng);
   const dispatch = useAppDispatch();
 
-  if (!records) {
-    return <p>No data</p>;
+  const handleAddToCart = (item: CartModel) => {
+    dispatch(addToCart(item));
+  };
+
+  const handleRemoveFromCart = (item: CartModel) => {
+    dispatch(removeFromCart(item));
+  };
+
+  if (!products.records || products.records.length === 0) {
+    return (
+      <div className=" mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+        <p className="text-sm font-medium">{t('components.products.noData')}</p>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <ul>
-        {records.map((item) => (
-          <li key={item.id}>
-            {item.fields.name} <button onClick={() => dispatch(addToCart(item as CartModel))}>+</button>{' '}
-            <button onClick={() => dispatch(removeFromCart(item as CartModel))}>-</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => dispatch(resetCart())}>reset cart</button>
-    </div>
+    <ul className="flex flex-wrap justify-center">
+      {products.records.map((product) => (
+        <ProductsItem product={product} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
+      ))}
+    </ul>
   );
 };

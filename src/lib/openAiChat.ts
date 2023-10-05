@@ -25,7 +25,7 @@ const parameters: CreateChatCompletionRequest = {
   functions: [
     {
       name: CallableFunction.GetInformation,
-      description: 'Get artworks shop information when user asks for it.',
+      description: 'Get artworks shop information when the user asks for it.',
       parameters: {
         type: 'object',
         properties: {
@@ -58,48 +58,49 @@ const extractFirstChoice = (data: CreateChatCompletionResponse): ChatResponse =>
   };
 };
 
-export class OpenAiChat {
-  private readonly openai = new OpenAIApi(
+export const createOpenAiChat = (system: string) => {
+  const openai = new OpenAIApi(
     new Configuration({
       apiKey: openAiConfig.apiKey
     })
   );
-  private readonly messages: ChatCompletionRequestMessage[];
 
-  constructor(system: string) {
-    this.messages = [
-      {
-        role: 'system',
-        content: system
-      }
-    ];
-  }
+  const messages: ChatCompletionRequestMessage[] = [
+    {
+      role: 'system',
+      content: system
+    }
+  ];
 
-  async say(
+  const say = async (
     prompt: string,
     role: ChatCompletionRequestMessageRoleEnum = ChatCompletionRequestMessageRoleEnum.User,
     functionName?: string
-  ): Promise<ChatResponse> {
-    this.messages.push({
+  ): Promise<ChatResponse> => {
+    messages.push({
       role,
       content: prompt,
       name: functionName
     });
 
-    const { data } = await this.openai.createChatCompletion({
+    const { data } = await openai.createChatCompletion({
       ...openAiConfig.parameters,
-      messages: this.messages
+      messages
     });
 
     const s = extractFirstChoice(data);
 
     if (s?.content) {
-      this.messages.push({
+      messages.push({
         role: 'assistant',
         content: s.content
       });
     }
 
     return s;
-  }
-}
+  };
+
+  return {
+    say
+  };
+};

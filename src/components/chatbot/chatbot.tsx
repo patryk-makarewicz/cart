@@ -2,14 +2,14 @@
 
 import { useTranslation } from '@/app/i18n/client';
 import { handleCallableFunction } from '@/lib/callableFunctions';
-import { OpenAiChat } from '@/lib/openAiChat';
+import { createOpenAiChat } from '@/lib/openAiChat';
 import { ChatCompletionRequestMessageRoleEnum } from 'openai';
 import { Widget, addResponseMessage, toggleMsgLoader } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 
 export const Chatbot = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
-  const chat = new OpenAiChat(
+  const chat = createOpenAiChat(
     'You are a friendly assistant chatbot in our online shop with artworks and you offer help to our customers.'
   );
 

@@ -7,6 +7,8 @@ import { RootState } from '@/redux/store';
 import { useAppSelector } from '@/redux/hooks';
 import { useTranslation } from '@/app/i18n/client';
 import { Button } from '@/components/button';
+import { CartList } from '@/components/cart/cartList';
+import { Summary } from '@/components/cart/summary';
 
 const CartPage = ({ params: { lng } }: lngProps) => {
   const { t } = useTranslation(lng);
@@ -14,25 +16,14 @@ const CartPage = ({ params: { lng } }: lngProps) => {
 
   return (
     <>
-      <h1>{t('greetings')} - cart page!</h1>
-      <h2>
-        <div>Item in cart: {cart.reduce((acc, current) => acc + current.quantity, 0)}</div>
-      </h2>
-      <h2>
-        <div>Total price: {cart.reduce((acc, current) => acc + current.fields.price, 0)}$</div>
-      </h2>
-
-      <ul>
-        {cart.map((item) => (
-          <li key={item.id}>
-            {item.fields.name} - {item.fields.price}$ - {item.quantity}
-          </li>
-        ))}
-      </ul>
-
-      <Link href={`/${lng}`}>
-        <Button>Back</Button>
-      </Link>
+      <div className="flex w-full flex-col items-center">
+        <h2 className="mb-3 text-xl font-semibold leading-7 text-gray-900">{t('page.cart.title')}</h2>
+        <CartList cart={cart} lng={lng} />
+        <Summary cart={cart} lng={lng} />
+        <Link href={`/${lng}/products`} className="pb-6">
+          <Button>{t('page.cart.back')}</Button>
+        </Link>
+      </div>
     </>
   );
 };

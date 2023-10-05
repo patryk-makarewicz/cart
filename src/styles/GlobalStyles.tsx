@@ -19,6 +19,7 @@ body {
   margin: 0;
   font-size: ${pxToRem('16px')};
   background-color: #f8fafb;
+  // tailwind -> text-neutral-700	- color: rgb(64 64 64);
   color: #404040;
   input,
   textarea,
@@ -83,6 +84,10 @@ a {
 
 .rcw-widget-container {
   max-width: 370px;
+}
+
+.rcw-client .rcw-message-text {
+  background-color: #dbeafe;
 }
 `;
 
