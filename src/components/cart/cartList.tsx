@@ -22,7 +22,7 @@ export const CartList = ({ cart, lng }: CartListProps) => {
       ) : (
         <ul>
           {cart.map((item) => (
-            <CartItem item={item} lng={lng} />
+            <CartItem key={item.id} item={item} lng={lng} />
           ))}
         </ul>
       )}

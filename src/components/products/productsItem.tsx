@@ -1,4 +1,5 @@
 import { ArtworkModel, CartModel } from '@/api/artworks/artworks.model';
+
 import { Button } from '../button';
 
 type ProductsItemProps = {
@@ -9,7 +10,7 @@ type ProductsItemProps = {
 
 export const ProductsItem = ({ product, handleAddToCart, handleRemoveFromCart }: ProductsItemProps) => {
   return (
-    <li key={product.id} className="m-3 w-72 overflow-hidden rounded-md border border-gray-200 bg-white">
+    <li className="m-3 w-72 overflow-hidden rounded-md border border-gray-200 bg-white">
       <img src={product.fields.imageSrc} alt={product.fields.imageAlt} className="h-96 w-full object-cover " />
       <div className="p-3">
         <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">

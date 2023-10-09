@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 
-import { lngProps } from '../page';
-import { RootState } from '@/redux/store';
-import { useAppSelector } from '@/redux/hooks';
 import { useTranslation } from '@/app/i18n/client';
 import { Button } from '@/components/button';
 import { CartList } from '@/components/cart/cartList';
 import { Summary } from '@/components/cart/summary';
+import { useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
+
+import { lngProps } from '../page';
 import { PageWrapper } from '../pageWrapper';
 
 const CartPage = ({ params: { lng } }: lngProps) => {

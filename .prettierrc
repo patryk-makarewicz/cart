@@ -9,17 +9,8 @@
   "importOrder": [
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
-    "@api/(.*)$",
-    "@hooks/(.*)$",
-    "@pages/(.*)$",
-    "@components/(.*)$",
-    "@utils/(.*)$",
-    "@translations/(.*)$",
-    "@helpers/(.*)$",
-    "@assets/(.*)$",
-    "@layout/(.*)$",
-    "@styles/(.*)$",
-    "@[./]"
+    "^(app|api|redux|hooks|components|lib|utils|translations|assets|layouts|styles)/?",
+    "^[./]"
   ],
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"]
 }

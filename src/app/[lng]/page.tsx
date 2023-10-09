@@ -1,9 +1,11 @@
 import Image from 'next/image';
-import Logo from '../../assets/logo_black.svg';
-import { useTranslation } from '../i18n';
 import Link from 'next/link';
+
 import { Button } from '@/components/button';
 import { Chatbot } from '@/components/chatbot';
+
+import Logo from '../../assets/logo_black.svg';
+import { useTranslation } from '../i18n';
 import { PageWrapper } from './pageWrapper';
 
 export type lngProps = {
@@ -33,6 +35,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
+//TODO: remove styled components
 //TODO: add in cart view add or remove item from cart
 //TODO: send cart -> basic solution console.log it
 //TODO: products list - show big photo and bestsellers
