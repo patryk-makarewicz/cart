@@ -1,19 +1,17 @@
 'use client';
 
-import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
-import { useAppDispatch } from '@/redux/hooks';
-import { addToCart, removeFromCart } from '@/redux/features/cartSlice';
+import { getArtworks } from '@/api/artworks/artworks.api';
+
+import { ArtworksListDTO, CartModel } from '../../api/artworks/artworks.model';
+import { useTranslation } from '../../app/i18n/client';
+import { addToCart, removeFromCart } from '../../redux/features/cartSlice';
+import { useAppDispatch } from '../../redux/hooks';
 import { ProductsItem } from './productsItem';
-import { useTranslation } from '@/app/i18n/client';
 
-type ProductsListProps = {
-  products: ArtworksListDTO;
-  lng: string;
-};
-
-export const ProductsList = ({ products, lng }: ProductsListProps) => {
+export const ProductsList = async ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const dispatch = useAppDispatch();
+  const products = await getArtworks();
 
   const handleAddToCart = (item: CartModel) => {
     dispatch(addToCart(item));
@@ -34,7 +32,12 @@ export const ProductsList = ({ products, lng }: ProductsListProps) => {
   return (
     <ul className="flex flex-wrap justify-center">
       {products.records.map((product) => (
-        <ProductsItem product={product} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
+        <ProductsItem
+          key={product.id}
+          product={product}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />
       ))}
     </ul>
   );

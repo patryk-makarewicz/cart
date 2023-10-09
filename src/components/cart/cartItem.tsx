@@ -10,7 +10,7 @@ export const CartItem = ({ item, lng }: CartItemProps) => {
   const { t } = useTranslation(lng);
 
   return (
-    <li key={item.id} className="mb-3 flex items-center">
+    <li className="mb-3 flex items-center">
       <img src={item.fields.imageSrc} alt={item.fields.imageAlt} className="mr-3 h-20 w-16 rounded-sm object-cover" />
       <div>
         <p className="mt max-w-2xl text-sm leading-6 text-gray-500">{item.fields.name}</p>

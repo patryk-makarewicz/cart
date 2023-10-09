@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { useTranslation } from '@/app/i18n/client';
 import { useAppSelector } from '@/redux/hooks';
 
+import FlagEn from '../../assets/lang_en.png';
+import FlagPl from '../../assets/lang_pl.png';
 import Logo from '../../assets/logo_black.svg';
 import CartIcon from '../../assets/shopping_cart.svg';
-import FlagPl from '../../assets/lang_pl.png';
-import FlagEn from '../../assets/lang_en.png';
 import { Navigation } from '../navigation/navigation';
-import { useTranslation } from '@/app/i18n/client';
 
 export const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
