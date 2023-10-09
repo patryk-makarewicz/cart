@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'pl'],
-    defaultLocale: 'en'
-  },
-  reactStrictMode: false,
+  reactStrictMode: false, //fot react-widget lib
   swcMinify: true,
   experimental: {
     // Required:
