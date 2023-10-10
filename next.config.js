@@ -9,9 +9,9 @@ const nextConfig = {
     esmExternals: true
   },
   env: {
-    API_KEY: process.env.REACT_APP_API_KEY,
-    DB_ID: process.env.REACT_APP_DB_ID,
-    OPENAI_KEY: process.env.REACT_APP_OPENAI_KEY
+    API_KEY: process.env.NEXT_PUBLIC_API_KEY,
+    DB_ID: process.env.NEXT_PUBLIC_DB_ID,
+    OPENAI_KEY: process.env.NEXT_PUBLIC_OPENAI_KEY
   },
   compiler: {
     // Enables the styled-components SWC transform
