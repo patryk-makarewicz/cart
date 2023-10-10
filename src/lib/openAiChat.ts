@@ -7,6 +7,7 @@ import {
   CreateChatCompletionResponse,
   OpenAIApi
 } from 'openai';
+
 import { CallableFunction, GetInformationKind } from './callableFunctions';
 
 export type ChatResponse = null | {
@@ -41,7 +42,7 @@ const parameters: CreateChatCompletionRequest = {
 };
 
 const openAiConfig = {
-  apiKey: `${process.env.OPENAI_KEY}`,
+  apiKey: `${process.env.NEXT_PUBLIC_OPENAI_KEY}`,
   parameters
 };
 
