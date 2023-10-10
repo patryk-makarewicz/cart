@@ -35,6 +35,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
+//TODO: fix redirect to /pl or /en
 //TODO: remove styled components
 //TODO: add in cart view add or remove item from cart
 //TODO: send cart -> basic solution console.log it
