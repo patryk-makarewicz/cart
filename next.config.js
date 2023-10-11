@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  reactStrictMode: false, //fot react-widget lib
+  reactStrictMode: false, //for react-widget lib
   swcMinify: true,
   experimental: {
     // Required:
