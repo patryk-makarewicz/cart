@@ -20,7 +20,7 @@ This is the website to manage cart.
 
 To watch click [here]
 
-[here]: https://cart-patryk-makarewicz.vercel.app/pl
+[here]: https://cart-patryk-makarewicz.vercel.app
 
 ## Create Next App
 
