@@ -14,7 +14,6 @@ import { lngProps } from '../page';
 import { PageWrapper } from '../pageWrapper';
 
 const CartPage = ({ params: { lng } }: lngProps) => {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = useTranslation(lng);
 
   const dispatch = useAppDispatch();

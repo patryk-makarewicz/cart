@@ -15,7 +15,6 @@ export type lngProps = {
 };
 
 const Home = async ({ params: { lng } }: lngProps) => {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await useTranslation(lng);
 
   return (
