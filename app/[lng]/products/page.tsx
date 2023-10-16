@@ -2,7 +2,6 @@ import { Chatbot } from '../../components/chatbot';
 import { ProductsList } from '../../components/products';
 import { Category } from '../../components/typography/category';
 import { useTranslation } from '../../i18n';
-import { fallbackLng, languages } from '../../i18n/settings';
 import { lngProps } from '../page';
 import { PageWrapper } from '../pageWrapper';
 

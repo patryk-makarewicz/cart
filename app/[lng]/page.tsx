@@ -5,7 +5,6 @@ import Logo from '../assets/logo_black.svg';
 import { Button } from '../components/button';
 import { Chatbot } from '../components/chatbot';
 import { useTranslation } from '../i18n';
-import { fallbackLng, languages } from '../i18n/settings';
 import { PageWrapper } from './pageWrapper';
 
 export type lngProps = {

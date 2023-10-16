@@ -4,10 +4,8 @@ import { dir } from 'i18next';
 
 import { languages } from '../i18n/settings';
 import MainLayout from '../layouts/main';
-import StyledComponentsRegistry from '../lib/registry';
 import { ReduxProvider } from '../redux/redux-provider';
-import GlobalStyles from '../styles/GlobalStyles';
-import '../styles/tailwind.css';
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -45,12 +43,9 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={inter.className}>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          <ReduxProvider>
-            <MainLayout lng={lng}>{children}</MainLayout>
-          </ReduxProvider>
-        </StyledComponentsRegistry>
+        <ReduxProvider>
+          <MainLayout lng={lng}>{children}</MainLayout>
+        </ReduxProvider>
       </body>
     </html>
   );
