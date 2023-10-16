@@ -24,7 +24,8 @@
     "products": {
       "category": "Photography",
       "subcategory": "Premium Photos",
-      "noData": "No data"
+      "noData": "No data",
+      "add": "Add to cart"
     }
   },
 

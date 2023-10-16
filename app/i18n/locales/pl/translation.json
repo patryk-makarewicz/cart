@@ -24,7 +24,8 @@
     "products": {
       "category": "Fotografia",
       "subcategory": "Zdjęcia Premium",
-      "noData": "Brak danych"
+      "noData": "Brak danych",
+      "add": "Dodaj do koszyka"
     }
   },
 
