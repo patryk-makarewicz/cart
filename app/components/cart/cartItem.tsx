@@ -1,12 +1,15 @@
 import { CartModel } from '../../api/artworks/artworks.model';
 import { useTranslation } from '../../i18n/client';
+import { Button } from '../button';
 
 type CartItemProps = {
   item: CartModel;
   lng: string;
+  handleAddToCart: (item: CartModel) => void;
+  handleRemoveFromCart: (item: CartModel) => void;
 };
 
-export const CartItem = ({ item, lng }: CartItemProps) => {
+export const CartItem = ({ item, lng, handleAddToCart, handleRemoveFromCart }: CartItemProps) => {
   const { t } = useTranslation(lng);
 
   return (
@@ -17,9 +20,17 @@ export const CartItem = ({ item, lng }: CartItemProps) => {
         <p className="mb text-base font-semibold leading-6 text-gray-900">
           {item.fields.price.toFixed(2)}$ {item.fields.currency}
         </p>
-        <p className="text-base leading-6 text-gray-900">
-          {t('page.cart.items')}: {item.quantity}
-        </p>
+        <div className="flex items-center gap-2">
+          <Button kind="addOrRemove" onClick={() => handleAddToCart(item)}>
+            +
+          </Button>
+          <p className="text-base leading-6 text-gray-900">
+            {t('page.cart.items')}: {item.quantity}
+          </p>
+          <Button kind="addOrRemove" onClick={() => handleRemoveFromCart(item)}>
+            -
+          </Button>
+        </div>
       </div>
     </li>
   );
