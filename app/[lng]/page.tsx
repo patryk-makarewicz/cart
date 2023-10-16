@@ -34,7 +34,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: add global styles to chat widget and adjust it to mobile
 //TODO: add sorting list
 //TODO: add filtering list
 //TODO: send cart -> basic solution console.log it

@@ -62,7 +62,7 @@ select:-webkit-autofill:focus {
 
 .rcw-sender {
   justify-content: space-between;
-  align-items: center;
+  align-items: center !important;
 }
 
 .rcw-launcher,
@@ -73,8 +73,13 @@ select:-webkit-autofill:focus {
 
 .rcw-widget-container {
   max-width: 370px;
+  max-height: 81vh;
 }
 
 .rcw-client .rcw-message-text {
   background-color: #dbeafe;
+}
+
+.rcw-conversation-container .rcw-close-button {
+  background-color: #0278ab !important;
 }
