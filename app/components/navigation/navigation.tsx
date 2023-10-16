@@ -15,7 +15,7 @@ export const Navigation = ({ pages, pathname }: NavigationProps) => (
         key={page.href}
         href={page.href}
         className={`${
-          page.href === pathname ? 'font-semibold text-sky-700' : 'font-medium'
+          page.href === pathname ? 'font-medium text-sky-700' : 'font-normal'
         } mr-5 transition duration-300 ease-in-out hover:text-sky-700`}>
         {page.label}
       </Link>

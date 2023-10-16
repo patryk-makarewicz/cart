@@ -3,11 +3,6 @@
 const nextConfig = {
   reactStrictMode: false, //for react-widget lib
   swcMinify: true,
-  experimental: {
-    // Required:
-    appDir: true,
-    esmExternals: true
-  },
   env: {
     API_KEY: process.env.NEXT_PUBLIC_API_KEY,
     DB_ID: process.env.NEXT_PUBLIC_DB_ID,

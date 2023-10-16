@@ -6,7 +6,6 @@ import { Button } from '../../components/button';
 import { CartList } from '../../components/cart/cartList';
 import { Summary } from '../../components/cart/summary';
 import { useTranslation } from '../../i18n/client';
-import { fallbackLng, languages } from '../../i18n/settings';
 import { resetCart } from '../../redux/features/cartSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
@@ -14,7 +13,6 @@ import { lngProps } from '../page';
 import { PageWrapper } from '../pageWrapper';
 
 const CartPage = ({ params: { lng } }: lngProps) => {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = useTranslation(lng);
 
   const dispatch = useAppDispatch();

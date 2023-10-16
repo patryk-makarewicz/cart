@@ -4,10 +4,8 @@ import { dir } from 'i18next';
 
 import { languages } from '../i18n/settings';
 import MainLayout from '../layouts/main';
-import StyledComponentsRegistry from '../lib/registry';
 import { ReduxProvider } from '../redux/redux-provider';
-import GlobalStyles from '../styles/GlobalStyles';
-import '../styles/tailwind.css';
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,14 +17,13 @@ export const metadata = {
   openGraph: {
     title: 'Cart App',
     description: 'This is app to manage cart',
-    images: ['/next.svg', '/vercel.svg'],
-    url: 'https://www.url.com',
+    images: ['/public/cover.png'],
+    url: 'https://cart-patryk-makarewicz.vercel.app',
     siteName: 'Cart App'
   },
-  metadataBase: new URL('https://www.url.com'),
+  metadataBase: new URL('https://cart-patryk-makarewicz.vercel.app'),
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.jpg'
+    icon: '/app/favicon.ico'
   }
 };
 
@@ -45,12 +42,9 @@ const RootLayout = ({ children, params: { lng } }: RootLayoutProps) => {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={inter.className}>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          <ReduxProvider>
-            <MainLayout lng={lng}>{children}</MainLayout>
-          </ReduxProvider>
-        </StyledComponentsRegistry>
+        <ReduxProvider>
+          <MainLayout lng={lng}>{children}</MainLayout>
+        </ReduxProvider>
       </body>
     </html>
   );

@@ -21,6 +21,7 @@ const customJestConfig = {
     '!<rootDir>/**/layout.*',
     '!<rootDir>/api/**/*',
     '!<rootDir>/lib/**/*',
+    '!<rootDir>/redux/**/*',
     '!<rootDir>/styles/**/*',
     '!<rootDir>/tests/**/*'
   ]
