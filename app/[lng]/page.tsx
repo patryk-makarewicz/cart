@@ -34,13 +34,13 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: remove styled components
 //TODO: add in cart view add or remove item from cart
+//TODO: remove `remove item` from cart on products list
 //TODO: send cart -> basic solution console.log it
-//TODO: products list - show big photo and bestsellers
-//TODO: remove error from console (react widget)
 //TODO: add sorting list
 //TODO: add filtering list
 //TODO: add terms and cookies
+//TODO: home page - add animation background from drei lib
+//TODO: products list - show big photo and bestsellers
 //TODO: improvement UI
 //TODO: add log in/out

@@ -17,14 +17,13 @@ export const metadata = {
   openGraph: {
     title: 'Cart App',
     description: 'This is app to manage cart',
-    images: ['/next.svg', '/vercel.svg'],
-    url: 'https://www.url.com',
+    images: ['/public/cover.png'],
+    url: 'https://cart-patryk-makarewicz.vercel.app',
     siteName: 'Cart App'
   },
-  metadataBase: new URL('https://www.url.com'),
+  metadataBase: new URL('https://cart-patryk-makarewicz.vercel.app'),
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.jpg'
+    icon: '/app/favicon.ico'
   }
 };
 
