@@ -1,8 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { ButtonProps } from './button';
-import Button from './button';
+import { Button, ButtonProps } from './button';
 
 const renderButton = ({ children = 'Click me' }: Partial<ButtonProps> = {}) => {
   const { getByText, getByTestId } = render(<Button>{children}</Button>);

@@ -28,8 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/i18n/settings.js",
-    "app/lib/registry.js"
+    "app/i18n/settings.js"
   ],
   "exclude": ["node_modules"]
 }
