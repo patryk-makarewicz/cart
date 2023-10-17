@@ -1,16 +1,28 @@
 'use client';
 
+import { ChangeEvent, useEffect, useState } from 'react';
+
 import { getArtworks } from '../../api/artworks/artworks.api';
-import { CartModel } from '../../api/artworks/artworks.model';
+import { ArtworksListDTO, ArtworksListSortMethod, CartModel } from '../../api/artworks/artworks.model';
 import { useTranslation } from '../../i18n/client';
-import { addToCart, removeFromCart } from '../../redux/features/cartSlice';
+import { addToCart } from '../../redux/features/cartSlice';
 import { useAppDispatch } from '../../redux/hooks';
 import { ProductsItem } from './productsItem';
 
 export const ProductsList = async ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const dispatch = useAppDispatch();
-  const products = await getArtworks();
+  const [products, setProducts] = useState<ArtworksListDTO>({ records: [] });
+
+  const fetchArtworks = async (sortMethod: ArtworksListSortMethod) => {
+    const productsData = await getArtworks(sortMethod);
+
+    setProducts(productsData);
+  };
+
+  useEffect(() => {
+    fetchArtworks(ArtworksListSortMethod.DEFAULT);
+  }, []);
 
   const handleAddToCart = (item: CartModel) => {
     dispatch(addToCart(item));
@@ -24,11 +36,24 @@ export const ProductsList = async ({ lng }: { lng: string }) => {
     );
   }
 
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    fetchArtworks(event.target.value as ArtworksListSortMethod);
+  };
+
   return (
-    <ul className="flex flex-wrap justify-center">
-      {products.records.map((product) => (
-        <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
-      ))}
-    </ul>
+    <>
+      <select onChange={handleSelectChange}>
+        <option value={ArtworksListSortMethod.DEFAULT}>Default</option>
+        <option value={ArtworksListSortMethod.PRICE}>Price asc</option>
+        <option value={ArtworksListSortMethod.PRICE_DESC}>Price dsc</option>
+        <option value={ArtworksListSortMethod.NAME}>Title asc</option>
+        <option value={ArtworksListSortMethod.NAME_DESC}>Title dsc</option>
+      </select>
+      <ul className="flex flex-wrap justify-center">
+        {products.records.map((product) => (
+          <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
+        ))}
+      </ul>
+    </>
   );
 };
