@@ -36,6 +36,7 @@ export default Home;
 
 //TODO: add sorting list
 //TODO: add filtering list
+//TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
 //TODO: add terms and cookies
 //TODO: home page - add animation background from drei lib

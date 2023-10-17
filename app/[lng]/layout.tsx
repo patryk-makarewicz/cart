@@ -23,7 +23,7 @@ export const metadata = {
   },
   metadataBase: new URL('https://cart-patryk-makarewicz.vercel.app'),
   icons: {
-    icon: '/app/favicon.ico'
+    icon: '/public/favicon.ico'
   }
 };
 
