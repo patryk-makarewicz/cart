@@ -40,6 +40,7 @@ export default Home;
 //TODO: send cart -> basic solution console.log it
 //TODO: add terms and cookies
 //TODO: home page - add animation background from drei lib
+//TODO: products list - placeholder for photos
 //TODO: products list - show big photo and bestsellers
 //TODO: improvement UI
 //TODO: add log in/out
