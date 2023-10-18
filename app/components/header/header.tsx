@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import FlagEn from '../../assets/lang_en.png';
 import FlagPl from '../../assets/lang_pl.png';
-import Logo from '../../assets/logo_black.svg';
+import Logo from '../../assets/logo_makaDev.png';
 import CartIcon from '../../assets/shopping_cart.svg';
 import { useTranslation } from '../../i18n/client';
 import { useAppSelector } from '../../redux/hooks';
@@ -31,7 +31,7 @@ export const Header = ({ lng }: { lng: string }) => {
       <div className="mx-auto flex max-w-screen-xl items-center justify-between p-2.5">
         <div className="flex items-center">
           <Link href={`/${lng}`}>
-            <Image priority src={Logo} width={30} height={36} alt="Logo makaDev" className="mr-5" />
+            <Image priority src={Logo} width={40} height={40} alt="Logo makaDev" className="mr-5" />
           </Link>
           <Navigation pages={pages} pathname={pathname} />
         </div>
