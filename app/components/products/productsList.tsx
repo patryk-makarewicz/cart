@@ -1,3 +1,5 @@
+'use client';
+
 import { ArtworksListDTO, CartModel } from '../../api/artworks/artworks.model';
 import { useTranslation } from '../../i18n/client';
 import { ProductsItem } from './productsItem';

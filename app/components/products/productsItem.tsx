@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslation } from '@/i18n/client';
 
 import { ArtworkModel, CartModel } from '../../api/artworks/artworks.model';
