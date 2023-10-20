@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-import { CartModel } from '../../api/artworks/artworks.model';
-import CartIcon from '../../assets/shopping_cart.svg';
-import { useTranslation } from '../../i18n/client';
-import { CartItem } from './cartItem';
+import { CartModel } from '@/api/artworks/artworks.model';
+import CartIcon from '@/assets/shopping_cart.svg';
+import { CartItem } from '@/components/cart/cartItem';
+import { useTranslation } from '@/i18n/client';
 
 type CartListProps = {
   cart: CartModel[];

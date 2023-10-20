@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Logo from '../assets/logo_makaDev.png';
-import { Button } from '../components/button';
-import { Chatbot } from '../components/chatbot';
-import { useTranslation } from '../i18n';
-import { PageWrapper } from './pageWrapper';
+import { PageWrapper } from '@/[lng]/pageWrapper';
+
+import Logo from '@/assets/logo_makaDev.png';
+import { Button } from '@/components/button';
+import { Chatbot } from '@/components/chatbot';
+import { useTranslation } from '@/i18n';
 
 export type lngProps = {
   params: {
@@ -43,4 +44,7 @@ export default Home;
 //TODO: products list - placeholder for photos
 //TODO: products list - show big photo and bestsellers
 //TODO: improvement UI
+//TODO: cache products? save prev filtering and sort method after change tab? no again fetch on change tab?
+//TODO: add React Query or get data to Redux?
 //TODO: add log in/out
+//TODO: use @ to imports

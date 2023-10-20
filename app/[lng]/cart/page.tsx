@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 
-import { CartModel } from '../../api/artworks/artworks.model';
-import { Button } from '../../components/button';
-import { CartList } from '../../components/cart/cartList';
-import { Summary } from '../../components/cart/summary';
-import { useTranslation } from '../../i18n/client';
-import { addToCart, removeFromCart, resetCart } from '../../redux/features/cartSlice';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { RootState } from '../../redux/store';
-import { lngProps } from '../page';
-import { PageWrapper } from '../pageWrapper';
+import { lngProps } from '@/[lng]/page';
+import { PageWrapper } from '@/[lng]/pageWrapper';
+
+import { CartModel } from '@/api/artworks/artworks.model';
+import { Button } from '@/components/button';
+import { CartList } from '@/components/cart/cartList';
+import { Summary } from '@/components/cart/summary';
+import { useTranslation } from '@/i18n/client';
+import { addToCart, removeFromCart, resetCart } from '@/redux/features/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
 
 const CartPage = ({ params: { lng } }: lngProps) => {
   const { t } = useTranslation(lng);

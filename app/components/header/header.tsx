@@ -2,13 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import FlagEn from '../../assets/lang_en.png';
-import FlagPl from '../../assets/lang_pl.png';
-import Logo from '../../assets/logo_makaDev.png';
-import CartIcon from '../../assets/shopping_cart.svg';
-import { useTranslation } from '../../i18n/client';
-import { useAppSelector } from '../../redux/hooks';
-import { Navigation } from '../navigation';
+import FlagEn from '@/assets/lang_en.png';
+import FlagPl from '@/assets/lang_pl.png';
+import Logo from '@/assets/logo_makaDev.png';
+import CartIcon from '@/assets/shopping_cart.svg';
+import { Navigation } from '@/components/navigation';
+import { useTranslation } from '@/i18n/client';
+import { useAppSelector } from '@/redux/hooks';
 
 export const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);

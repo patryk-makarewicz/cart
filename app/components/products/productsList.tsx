@@ -1,8 +1,8 @@
 'use client';
 
-import { ArtworksListDTO, CartModel } from '../../api/artworks/artworks.model';
-import { useTranslation } from '../../i18n/client';
-import { ProductsItem } from './productsItem';
+import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
+import { ProductsItem } from '@/components/products/productsItem';
+import { useTranslation } from '@/i18n/client';
 
 type ProductsListProps = {
   products: ArtworksListDTO;
@@ -16,7 +16,7 @@ export const ProductsList = async ({ products, isLoadingProducts, handleAddToCar
 
   if (!products.records || (!isLoadingProducts && products.records.length === 0)) {
     return (
-      <div className=" mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+      <div className="animate-fadeIn mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
         <p className="text-sm font-medium">{t('components.products.noData')}</p>
       </div>
     );
@@ -24,7 +24,7 @@ export const ProductsList = async ({ products, isLoadingProducts, handleAddToCar
 
   return (
     <>
-      <ul className="flex flex-wrap justify-center">
+      <ul className="flex flex-wrap justify-center animate-fadeIn">
         {products.records.map((product) => (
           <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
         ))}

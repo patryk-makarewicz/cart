@@ -1,6 +1,6 @@
-import { CartModel } from '../../api/artworks/artworks.model';
-import { useTranslation } from '../../i18n/client';
-import { Button } from '../button';
+import { CartModel } from '@/api/artworks/artworks.model';
+import { Button } from '@/components/button';
+import { useTranslation } from '@/i18n/client';
 
 type SummaryProps = {
   cart: CartModel[];

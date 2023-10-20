@@ -2,10 +2,10 @@ import { Inter } from 'next/font/google';
 
 import { dir } from 'i18next';
 
-import { languages } from '../i18n/settings';
-import MainLayout from '../layouts/main';
-import { ReduxProvider } from '../redux/redux-provider';
-import '../styles/globals.css';
+import { languages } from '@/i18n/settings';
+import MainLayout from '@/layouts/main';
+import { ReduxProvider } from '@/redux/redux-provider';
+import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 

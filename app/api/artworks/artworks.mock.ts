@@ -1,5 +1,5 @@
-import { request } from '../request';
-import { ArtworksListDTO } from './artworks.model';
+import { ArtworksListDTO } from '@/api/artworks/artworks.model';
+import { request } from '@/api/request';
 
 export const getArtworksMock = () => {
   return request<ArtworksListDTO>({

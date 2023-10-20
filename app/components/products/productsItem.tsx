@@ -1,9 +1,8 @@
 'use client';
 
+import { ArtworkModel, CartModel } from '@/api/artworks/artworks.model';
+import { Button } from '@/components/button';
 import { useTranslation } from '@/i18n/client';
-
-import { ArtworkModel, CartModel } from '../../api/artworks/artworks.model';
-import { Button } from '../button';
 
 type ProductsItemProps = {
   product: ArtworkModel;

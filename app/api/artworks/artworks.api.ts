@@ -1,6 +1,6 @@
-import { BASE_URL, headers, useAPImocks } from '../config';
-import { getArtworksMock } from './artworks.mock';
-import { ArtworksListDTO, ArtworksListSortMethod } from './artworks.model';
+import { getArtworksMock } from '@/api/artworks/artworks.mock';
+import { ArtworksListDTO, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { BASE_URL, headers, useAPImocks } from '@/api/config';
 
 export const getArtworks = async (sort: ArtworksListSortMethod): Promise<ArtworksListDTO> => {
   if (useAPImocks) {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import Logo from '../../assets/logo_makaDev.png';
-import { useTranslation } from '../../i18n/client';
+import Logo from '@/assets/logo_makaDev.png';
+import { useTranslation } from '@/i18n/client';
 
 export const Footer = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
