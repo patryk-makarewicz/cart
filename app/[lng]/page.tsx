@@ -35,7 +35,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: add filtering list
+//TODO: products page fetch data, loading behavior
 //TODO: add styles to sorting and filtering
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
@@ -47,4 +47,3 @@ export default Home;
 //TODO: cache products? save prev filtering and sort method after change tab? no again fetch on change tab?
 //TODO: add React Query or get data to Redux?
 //TODO: add log in/out
-//TODO: use @ to imports
