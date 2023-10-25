@@ -1,25 +1,48 @@
 'use client';
 
 import Loading from '@/[lng]/loading';
+import axios from 'axios';
 import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 
-import { getArtworks } from '@/api/artworks';
-import { ArtworksListDTO, ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
+import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
+import { BASE_URL, headers } from '@/api/config';
 import { Chatbot } from '@/components/chatbot';
 import { ProductsList } from '@/components/products/productsList';
 import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
-import { useAppDispatch } from '@/redux/hooks';
+import { setProductsData, setLoading, setError, ProductsState } from '@/redux/features/productsSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 export const Products = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
-  const dispatch = useAppDispatch();
-  const [isLoadingProducts, setIsLoadingProducts] = useState(true);
-  const [products, setProducts] = useState<ArtworksListDTO>({ records: [] });
   const [params, setParams] = useState({
     sort: 'default' as ArtworksListSortMethod,
     filters: [] as string[]
   });
+
+  const dispatch = useAppDispatch();
+  const {
+    products: productsList,
+    loading: isLoadingProducts,
+    error: isErrorProducts
+  } = useAppSelector((state) => state.productsReducer);
+
+  const fetchProducts = async () => {
+    try {
+      const filterQuery =
+        params.filters.length > 0
+          ? `&filterByFormula=OR(${params.filters.map((filter) => `{category}="${filter}"`).join(', ')})`
+          : '';
+      dispatch(setLoading(true));
+      const response = await axios.get(`${BASE_URL}/artworks?view=default&${params.sort}${filterQuery}`, { headers });
+      dispatch(setProductsData(response.data));
+      dispatch(setLoading(false));
+    } catch (error) {
+      console.error('An error occurred while fetching data:', error);
+      dispatch(setError(true));
+      dispatch(setLoading(false));
+    }
+  };
 
   const FilterOptions = [
     { value: 'pets', label: 'Pets' },
@@ -38,17 +61,6 @@ export const Products = ({ lng }: { lng: string }) => {
     { value: ArtworksListSortMethod.NAME, label: 'Title asc' },
     { value: ArtworksListSortMethod.NAME_DESC, label: 'Title desc' }
   ];
-
-  const fetchProducts = async () => {
-    try {
-      const productsData = await getArtworks(params.sort, params.filters);
-      setProducts(productsData);
-    } catch (error) {
-      console.error('An error occurred while fetching data:', error);
-    } finally {
-      setIsLoadingProducts(false);
-    }
-  };
 
   const handleAddToCart = (item: CartModel) => {
     dispatch(addToCart(item));
@@ -104,7 +116,7 @@ export const Products = ({ lng }: { lng: string }) => {
 
       <Suspense fallback={<Loading />}>
         <ProductsList
-          products={products}
+          products={productsList}
           isLoadingProducts={isLoadingProducts}
           handleAddToCart={handleAddToCart}
           lng={lng}
