@@ -35,15 +35,15 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
+//TODO: move filtering and sort method to Redux
 //TODO: products list error and loading state
 //TODO: add styles to sorting and filtering
+//-----------------------------------------------
+//TODO: home page - add animation background from drei lib
+//TODO: products list - show big photo and bestsellers
+//TODO: improvement UI
+//-----------------------------------------------
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
 //TODO: add terms and cookies
-//TODO: home page - add animation background from drei lib
-//TODO: products list - placeholder for photos
-//TODO: products list - show big photo and bestsellers
-//TODO: improvement UI
-//TODO: cache products? save prev filtering and sort method after change tab? no again fetch on change tab?
-//TODO: add React Query or get data to Redux?
 //TODO: add log in/out

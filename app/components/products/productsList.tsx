@@ -26,7 +26,7 @@ export const ProductsList = ({ products, isLoadingProducts, handleAddToCart, lng
 
   return (
     <>
-      <ul className="flex flex-wrap justify-center animate-fadeIn">
+      <ul className="flex flex-wrap justify-center">
         {products.records.map((product) => (
           <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
         ))}

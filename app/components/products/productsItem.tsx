@@ -1,6 +1,9 @@
 import { ArtworkModel, CartModel } from '@/api/artworks/artworks.model';
 import { Button } from '@/components/button';
+import { usePhotoLoading } from '@/hooks/usePhotoLoading';
 import { useTranslation } from '@/i18n/client';
+
+import { Placeholder } from '../placeholder';
 
 type ProductsItemProps = {
   product: ArtworkModel;
@@ -11,9 +14,21 @@ type ProductsItemProps = {
 export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProps) => {
   const { t } = useTranslation(lng);
 
+  const { onLoad, loaded, refPhoto } = usePhotoLoading();
+
   return (
-    <li className="m-3 w-72 overflow-hidden rounded-md border border-gray-200 bg-white">
-      <img src={product.fields.imageSrc} alt={product.fields.imageAlt} className="h-96 w-full object-cover " />
+    <li className="m-3 w-72 overflow-hidden rounded-md border border-gray-200 bg-white animate-fadeIn">
+      <div className="h-96 w-full">
+        <Placeholder hide={loaded} />
+        <img
+          src={product.fields.imageSrc}
+          alt={product.fields.imageAlt}
+          ref={refPhoto}
+          onLoad={onLoad}
+          className={`${!loaded ? 'opacity-0' : 'opacity-100 animate-fadeIn'}  h-full w-full object-cover `}
+        />
+      </div>
+
       <div className="p-3">
         <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
           {product.fields.category}
