@@ -35,8 +35,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: products page loading behavior
-//TODO: products list error state
+//TODO: products list error and loading state
 //TODO: add styles to sorting and filtering
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it

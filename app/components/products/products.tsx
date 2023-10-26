@@ -1,17 +1,14 @@
 'use client';
 
-import Loading from '@/[lng]/loading';
-import axios from 'axios';
-import { ChangeEvent, Suspense, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
-import { BASE_URL, headers } from '@/api/config';
 import { Chatbot } from '@/components/chatbot';
 import { ProductsList } from '@/components/products/productsList';
+import { useFetchProducts } from '@/hooks/useFetchProducts';
 import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
-import { setProductsData, setLoading, setError, ProductsState } from '@/redux/features/productsSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { useAppDispatch } from '@/redux/hooks';
 
 export const Products = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
@@ -21,28 +18,7 @@ export const Products = ({ lng }: { lng: string }) => {
   });
 
   const dispatch = useAppDispatch();
-  const {
-    products: productsList,
-    loading: isLoadingProducts,
-    error: isErrorProducts
-  } = useAppSelector((state) => state.productsReducer);
-
-  const fetchProducts = async () => {
-    try {
-      const filterQuery =
-        params.filters.length > 0
-          ? `&filterByFormula=OR(${params.filters.map((filter) => `{category}="${filter}"`).join(', ')})`
-          : '';
-      dispatch(setLoading(true));
-      const response = await axios.get(`${BASE_URL}/artworks?view=default&${params.sort}${filterQuery}`, { headers });
-      dispatch(setProductsData(response.data));
-      dispatch(setLoading(false));
-    } catch (error) {
-      console.error('An error occurred while fetching data:', error);
-      dispatch(setError(true));
-      dispatch(setLoading(false));
-    }
-  };
+  const { products, loading, error } = useFetchProducts(params);
 
   const FilterOptions = [
     { value: 'pets', label: 'Pets' },
@@ -84,9 +60,9 @@ export const Products = ({ lng }: { lng: string }) => {
     setParams({ ...params, filters: updatedFilters });
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, [params.sort, params.filters]);
+  if (error) {
+    return <h4>ERROR</h4>;
+  }
 
   return (
     <>
@@ -114,14 +90,7 @@ export const Products = ({ lng }: { lng: string }) => {
         ))}
       </div>
 
-      <Suspense fallback={<Loading />}>
-        <ProductsList
-          products={productsList}
-          isLoadingProducts={isLoadingProducts}
-          handleAddToCart={handleAddToCart}
-          lng={lng}
-        />
-      </Suspense>
+      <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
 
       <Chatbot lng={lng} />
     </>
