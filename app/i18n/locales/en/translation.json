@@ -30,13 +30,17 @@
       "noData": "No data",
       "add": "Add to cart"
     },
-    "sortMethods": {
-      "default": "Default",
-      "priceAsc": "Price ascending",
-      "priceDesc": "Price descending",
-      "nameAsc": "Title A-Z",
-      "nameDesc": "Title Z-A"
+    "sort": {
+      "sortBy": "Sort by",
+      "sortMethods": {
+        "default": "Default",
+        "priceAsc": "Price ascending",
+        "priceDesc": "Price descending",
+        "nameAsc": "Title A-Z",
+        "nameDesc": "Title Z-A"
+      }
     },
+
     "filters": {
       "pets": "Pets",
       "people": "People",

@@ -39,6 +39,7 @@ export default Home;
 //TODO: add styles to sorting and filtering
 //-----------------------------------------------
 //TODO: upgrade to next 14
+//TODO: custom colors in Tailwind
 //-----------------------------------------------
 //TODO: home page - add animation background from drei lib
 //TODO: products list - show big photo and bestsellers

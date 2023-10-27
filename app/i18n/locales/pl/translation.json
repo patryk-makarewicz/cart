@@ -30,13 +30,17 @@
       "noData": "Brak danych",
       "add": "Dodaj do koszyka"
     },
-    "sortMethods": {
-      "default": "Domyślny",
-      "priceAsc": "Cena rosnąco",
-      "priceDesc": "Cena malejąco",
-      "nameAsc": "Tytuł A-Z",
-      "nameDesc": "Tytuł Z-A"
+    "sort": {
+      "sortBy": "Sortowanie",
+      "sortMethods": {
+        "default": "Domyślny",
+        "priceAsc": "Cena rosnąco",
+        "priceDesc": "Cena malejąco",
+        "nameAsc": "Tytuł A-Z",
+        "nameDesc": "Tytuł Z-A"
+      }
     },
+
     "filters": {
       "pets": "Zwierzęta",
       "people": "Ludzie",
