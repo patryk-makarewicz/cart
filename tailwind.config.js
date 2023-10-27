@@ -4,7 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0278ab'
+        appPrimary: '#0369a1', //sky-700
+
+        appBlack: '#1f2937', //gray-800
+        appBlue: '#0369a1', //sky-700
+        appGray: '#6b7280', //gray-500
+        appWarning: '#C52A1A'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
