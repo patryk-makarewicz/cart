@@ -31,7 +31,7 @@ export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProp
 
       <div className="p-3">
         <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-          {product.fields.category}
+          {t(`components.filters.${product.fields.category}`)}
         </span>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{product.fields.name}</p>
         <p className="mb-2 text-base font-semibold leading-7 text-gray-900">

@@ -13,6 +13,7 @@ import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import { FilterProducts } from './filtersProducts';
 import { SortProducts } from './sortProducts';
 
 export const Products = ({ lng }: { lng: string }) => {
@@ -24,16 +25,6 @@ export const Products = ({ lng }: { lng: string }) => {
 
   const dispatch = useAppDispatch();
   const { products, loading, error } = useFetchProducts(params);
-
-  const FilterOptions = [
-    { value: 'pets', label: 'Pets' },
-    { value: 'people', label: 'People' },
-    { value: 'cities', label: 'Cities' },
-    { value: 'food', label: 'Food' },
-    { value: 'premium', label: 'Premium' },
-    { value: 'landmarks', label: 'Landmarks' },
-    { value: 'nature', label: 'Nature' }
-  ];
 
   const handleAddToCart = (item: CartModel) => {
     dispatch(addToCart(item));
@@ -71,23 +62,8 @@ export const Products = ({ lng }: { lng: string }) => {
   return (
     <>
       <SortProducts handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
-
-      <div>
-        {FilterOptions.map((option) => (
-          <label key={option.value}>
-            <input
-              type="checkbox"
-              value={option.value}
-              checked={params.filters.includes(option.value)}
-              onChange={handleCheckboxChange}
-            />
-            {option.label}
-          </label>
-        ))}
-      </div>
-
+      <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
       <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
-
       <Chatbot lng={lng} />
     </>
   );

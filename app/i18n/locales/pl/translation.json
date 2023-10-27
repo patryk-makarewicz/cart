@@ -36,6 +36,15 @@
       "priceDesc": "Cena malejąco",
       "nameAsc": "Tytuł A-Z",
       "nameDesc": "Tytuł Z-A"
+    },
+    "filters": {
+      "pets": "Zwierzęta",
+      "people": "Ludzie",
+      "cities": "Miasta",
+      "food": "Jedzenie",
+      "premium": "Premium",
+      "landmarks": "Zabytki",
+      "nature": "Natura"
     }
   },
 

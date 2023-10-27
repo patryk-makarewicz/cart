@@ -1,0 +1,43 @@
+import { ChangeEvent } from 'react';
+
+import { ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { useTranslation } from '@/i18n/client';
+
+type FilterProductsProps = {
+  params: {
+    sort: ArtworksListSortMethod;
+    filters: string[];
+  };
+  handleCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  lng: string;
+};
+
+export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProductsProps) => {
+  const { t } = useTranslation(lng);
+
+  const FilterOptions = [
+    { value: 'pets', label: t('components.filters.pets') },
+    { value: 'people', label: t('components.filters.people') },
+    { value: 'cities', label: t('components.filters.cities') },
+    { value: 'food', label: t('components.filters.food') },
+    { value: 'premium', label: t('components.filters.premium') },
+    { value: 'landmarks', label: t('components.filters.landmarks') },
+    { value: 'nature', label: t('components.filters.nature') }
+  ];
+
+  return (
+    <div>
+      {FilterOptions.map((option) => (
+        <label key={option.value}>
+          <input
+            type="checkbox"
+            value={option.value}
+            checked={params.filters.includes(option.value)}
+            onChange={handleCheckboxChange}
+          />
+          {option.label}
+        </label>
+      ))}
+    </div>
+  );
+};

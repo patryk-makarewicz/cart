@@ -36,6 +36,15 @@
       "priceDesc": "Price descending",
       "nameAsc": "Title A-Z",
       "nameDesc": "Title Z-A"
+    },
+    "filters": {
+      "pets": "Pets",
+      "people": "People",
+      "cities": "Cities",
+      "food": "Food",
+      "premium": "Premium",
+      "landmarks": "Landmarks",
+      "nature": "Nature"
     }
   },
 
