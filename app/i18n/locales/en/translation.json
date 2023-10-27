@@ -29,6 +29,13 @@
       "subcategory": "Premium Photos",
       "noData": "No data",
       "add": "Add to cart"
+    },
+    "sortMethods": {
+      "default": "Default",
+      "priceAsc": "Price ascending",
+      "priceDesc": "Price descending",
+      "nameAsc": "Title A-Z",
+      "nameDesc": "Title Z-A"
     }
   },
 

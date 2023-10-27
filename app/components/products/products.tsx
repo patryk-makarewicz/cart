@@ -13,6 +13,8 @@ import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import { SortProducts } from './sortProducts';
+
 export const Products = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const [params, setParams] = useState({
@@ -31,14 +33,6 @@ export const Products = ({ lng }: { lng: string }) => {
     { value: 'premium', label: 'Premium' },
     { value: 'landmarks', label: 'Landmarks' },
     { value: 'nature', label: 'Nature' }
-  ];
-
-  const SortOptions = [
-    { value: ArtworksListSortMethod.DEFAULT, label: 'Default' },
-    { value: ArtworksListSortMethod.PRICE, label: 'Price asc' },
-    { value: ArtworksListSortMethod.PRICE_DESC, label: 'Price desc' },
-    { value: ArtworksListSortMethod.NAME, label: 'Title asc' },
-    { value: ArtworksListSortMethod.NAME_DESC, label: 'Title desc' }
   ];
 
   const handleAddToCart = (item: CartModel) => {
@@ -76,15 +70,7 @@ export const Products = ({ lng }: { lng: string }) => {
 
   return (
     <>
-      <div>
-        <select onChange={handleSelectSortMethod} className="w-32">
-          {SortOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      <SortProducts handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
 
       <div>
         {FilterOptions.map((option) => (

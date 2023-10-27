@@ -29,6 +29,13 @@
       "subcategory": "Zdjęcia Premium",
       "noData": "Brak danych",
       "add": "Dodaj do koszyka"
+    },
+    "sortMethods": {
+      "default": "Domyślny",
+      "priceAsc": "Cena rosnąco",
+      "priceDesc": "Cena malejąco",
+      "nameAsc": "Tytuł A-Z",
+      "nameDesc": "Tytuł Z-A"
     }
   },
 
