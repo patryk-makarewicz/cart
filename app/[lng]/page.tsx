@@ -36,8 +36,9 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //TODO: move filtering and sort method to Redux
-//TODO: products list error and loading state
 //TODO: add styles to sorting and filtering
+//-----------------------------------------------
+//TODO: upgrade to next 14
 //-----------------------------------------------
 //TODO: home page - add animation background from drei lib
 //TODO: products list - show big photo and bestsellers

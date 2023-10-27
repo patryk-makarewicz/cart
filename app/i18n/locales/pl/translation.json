@@ -13,6 +13,9 @@
       "totalPrice": "Cena całkowita",
       "items": "Ilość",
       "empty": "Brak produktów"
+    },
+    "products": {
+      "error": "Upss error, odśwież stronę i spróbuj ponownie"
     }
   },
 

@@ -13,6 +13,9 @@
       "totalPrice": "Total price",
       "items": "Items",
       "empty": "No products"
+    },
+    "products": {
+      "error": "Upss error, please refresh page a try again"
     }
   },
 

@@ -1,5 +1,6 @@
 import { ArtworksListDTO, CartModel } from '@/api/artworks/artworks.model';
 import { ProductsItem } from '@/components/products/productsItem';
+import { Spinner } from '@/components/spinner';
 import { useTranslation } from '@/i18n/client';
 
 type ProductsListProps = {
@@ -21,7 +22,7 @@ export const ProductsList = ({ products, isLoadingProducts, handleAddToCart, lng
   }
 
   if (isLoadingProducts) {
-    return <h4>Loading...</h4>;
+    return <Spinner />;
   }
 
   return (

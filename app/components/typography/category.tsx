@@ -4,7 +4,7 @@ type CategoryProps = {
 };
 
 export const Category = ({ category, subcategory }: CategoryProps) => (
-  <h2 className="mb text-xl font-semibold leading-7 text-gray-900">
+  <h2 className="mb-2.5 text-xl font-semibold leading-7 text-gray-900">
     {category}
     {subcategory && (
       <>

@@ -1,8 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+
 import { ChangeEvent, useState } from 'react';
 
 import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
+import ErrorIcon from '@/assets/error.svg';
 import { Chatbot } from '@/components/chatbot';
 import { ProductsList } from '@/components/products/productsList';
 import { useFetchProducts } from '@/hooks/useFetchProducts';
@@ -61,7 +64,14 @@ export const Products = ({ lng }: { lng: string }) => {
   };
 
   if (error) {
-    return <h4>ERROR</h4>;
+    return (
+      <div className="mx-auto flex w-72 flex-col rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+        <div className="flex h-48 flex-col items-center justify-evenly">
+          <Image priority src={ErrorIcon} alt="Error icon" />
+          <p className="text-sm font-medium">{t('page.products.error')}</p>
+        </div>
+      </div>
+    );
   }
 
   return (

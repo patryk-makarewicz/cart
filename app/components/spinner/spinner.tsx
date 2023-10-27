@@ -7,7 +7,7 @@ type SpinnerProps = {
 
 export const Spinner = ({ width = '50px', height = '50px' }: SpinnerProps) => {
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center animate-fadeIn">
       <svg
         data-testid="spinner"
         width={width}
