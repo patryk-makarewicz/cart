@@ -1,6 +1,7 @@
 'use client';
 
 import { ChatCompletionRequestMessageRoleEnum } from 'openai';
+//@ts-ignore
 import { Widget, addResponseMessage, toggleMsgLoader } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 

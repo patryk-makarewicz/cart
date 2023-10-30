@@ -7,8 +7,8 @@ This is the website to manage cart.
 
 ## What's inside?
 
-✔ Next.js<br />
-✔ React<br />
+✔ Next.js 14 (App router)<br />
+✔ React 18<br />
 ✔ TypeScript<br />
 ✔ JavaScript<br />
 ✔ Rest API<br />
@@ -23,18 +23,12 @@ To watch click [here]
 
 [here]: https://cart-patryk-makarewicz.vercel.app
 
-## Create Next App
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

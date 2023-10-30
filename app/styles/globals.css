@@ -65,6 +65,10 @@ select:-webkit-autofill:focus {
   align-items: center !important;
 }
 
+.rcw-client > .rcw-message-text {
+  background-color: #a3eaf7 !important;
+}
+
 .rcw-launcher,
 .rcw-conversation-container,
 .rcw-header {
