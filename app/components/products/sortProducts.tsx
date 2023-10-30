@@ -7,11 +7,15 @@ import SortIcon from '@/assets/sort.svg';
 import { useTranslation } from '@/i18n/client';
 
 type SortProductsProps = {
+  params: {
+    sort: ArtworksListSortMethod;
+    filters: string[];
+  };
   handleSelectSortMethod: (event: ChangeEvent<HTMLSelectElement>) => void;
   lng: string;
 };
 
-export const SortProducts = ({ handleSelectSortMethod, lng }: SortProductsProps) => {
+export const SortProducts = ({ params, handleSelectSortMethod, lng }: SortProductsProps) => {
   const { t } = useTranslation(lng);
 
   const SortOptions = [
@@ -26,7 +30,7 @@ export const SortProducts = ({ handleSelectSortMethod, lng }: SortProductsProps)
     <div className="flex justify-end">
       <Image className="mr-2" priority src={SortIcon} alt="Sort icon" />
       <span className="mr-2 text-appGray">{t('components.sort.sortBy')}:</span>
-      <select onChange={handleSelectSortMethod} className="w-32">
+      <select onChange={handleSelectSortMethod} value={params.sort} className="w-40">
         {SortOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

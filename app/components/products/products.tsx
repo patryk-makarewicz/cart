@@ -51,9 +51,11 @@ export const Products = ({ lng }: { lng: string }) => {
 
   return (
     <>
-      <SortProducts handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
-      <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
-      <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
+      <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
+      <div className="flex h-full w-full">
+        <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
+        <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
+      </div>
       <Chatbot lng={lng} />
     </>
   );
