@@ -12,7 +12,7 @@ const ProductsPage = async ({ params: { lng } }: lngProps) => {
     <>
       <PageWrapper>
         <div className="mx-auto flex w-full flex-col">
-          <Category category={t('components.products.category')} subcategory={t('components.products.subcategory')} />
+          <Category category={t('page.products.category')} subcategory={t('page.products.subcategory')} />
           <Products lng={lng} />
         </div>
       </PageWrapper>

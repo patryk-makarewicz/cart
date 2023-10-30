@@ -15,7 +15,9 @@
       "empty": "Brak produktów"
     },
     "products": {
-      "error": "Upss error, odśwież stronę i spróbuj ponownie"
+      "error": "Upss error, odśwież stronę i spróbuj ponownie",
+      "category": "Fotografia",
+      "subcategory": "Zdjęcia Premium"
     }
   },
 
@@ -25,10 +27,9 @@
       "products": "Produkty"
     },
     "products": {
-      "category": "Fotografia",
-      "subcategory": "Zdjęcia Premium",
       "noData": "Brak danych",
-      "add": "Dodaj do koszyka"
+      "add": "Dodaj do koszyka",
+      "category": "Kategoria"
     },
     "sort": {
       "sortBy": "Sortowanie",

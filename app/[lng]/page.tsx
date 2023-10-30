@@ -35,15 +35,16 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: add styles to sorting and filtering
-//TODO: bug - dropdown must remember sort value after change tab and back
-//-----------------------------------------------
 //TODO: upgrade to next 14
 //-----------------------------------------------
-//TODO: home page - add animation background from drei lib
-//TODO: products list - show big photo and bestsellers
-//TODO: improvement UI
+//TODO: improvement UI - home page - add animation background from drei
+//TODO: improvement UI - products list - show big photo and bestsellers
+//TODO: improvement UI - layout products page and mobile version view
+//TODO: improvement UI - add custom styles to dropdown
+//TODO: improvement UI - add custom styles to checkbox
+//TODO: improvement UI - cart tab
 //-----------------------------------------------
+//TODO: add price range filters
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
 //TODO: add terms and cookies

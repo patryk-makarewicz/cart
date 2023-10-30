@@ -15,7 +15,9 @@
       "empty": "No products"
     },
     "products": {
-      "error": "Upss error, please refresh page a try again"
+      "error": "Upss error, please refresh page a try again",
+      "category": "Photography",
+      "subcategory": "Premium Photos"
     }
   },
 
@@ -25,10 +27,9 @@
       "products": "Products"
     },
     "products": {
-      "category": "Photography",
-      "subcategory": "Premium Photos",
       "noData": "No data",
-      "add": "Add to cart"
+      "add": "Add to cart",
+      "category": "Category"
     },
     "sort": {
       "sortBy": "Sort by",
@@ -40,7 +41,6 @@
         "nameDesc": "Title Z-A"
       }
     },
-
     "filters": {
       "pets": "Pets",
       "people": "People",
