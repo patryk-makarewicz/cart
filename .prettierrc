@@ -9,7 +9,7 @@
   "importOrder": [
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
-    "^(app|api|assets|redux|hooks|components|lib|utils|translations|assets|layouts|styles)/?",
+    "^(@/app|@/api|@/assets|@/redux|@/hooks|@/components|@/i18n|@/lib|@/utils|@/translations|@/layouts|@/styles)/?",
     "^[./]"
   ],
   "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"]

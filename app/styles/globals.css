@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --text-color: #404040;
+  /* gray-800 */
+  --text-color: #1f2937;
   --background-color: #f8fafb;
   --background-secondary-color: #ffffff;
   --border-color: #e5e5e5;
@@ -23,7 +24,6 @@ body {
   padding: 0;
   margin: 0;
   font-size: 16px;
-  /* font-weight: 400; */
   color: var(--text-color);
   background: var(--background-color);
   input,
@@ -68,7 +68,7 @@ select:-webkit-autofill:focus {
 .rcw-launcher,
 .rcw-conversation-container,
 .rcw-header {
-  background-color: #0278ab !important;
+  background-color: #0369a1 !important;
 }
 
 .rcw-widget-container {
@@ -81,5 +81,5 @@ select:-webkit-autofill:focus {
 }
 
 .rcw-conversation-container .rcw-close-button {
-  background-color: #0278ab !important;
+  background-color: #0369a1 !important;
 }

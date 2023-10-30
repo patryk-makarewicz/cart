@@ -8,6 +8,7 @@ This is the website to manage cart.
 ## What's inside?
 
 ✔ Next.js<br />
+✔ React<br />
 ✔ TypeScript<br />
 ✔ JavaScript<br />
 ✔ Rest API<br />

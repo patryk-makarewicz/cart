@@ -1,34 +1,37 @@
-'use client';
+import { ArtworkModel, CartModel } from '@/api/artworks/artworks.model';
+import { ProductsItem } from '@/components/products/productsItem';
+import { Spinner } from '@/components/spinner';
+import { useTranslation } from '@/i18n/client';
 
-import { getArtworks } from '../../api/artworks/artworks.api';
-import { CartModel } from '../../api/artworks/artworks.model';
-import { useTranslation } from '../../i18n/client';
-import { addToCart, removeFromCart } from '../../redux/features/cartSlice';
-import { useAppDispatch } from '../../redux/hooks';
-import { ProductsItem } from './productsItem';
+type ProductsListProps = {
+  products: ArtworkModel[];
+  isLoadingProducts: boolean;
+  handleAddToCart: (item: CartModel) => void;
+  lng: string;
+};
 
-export const ProductsList = async ({ lng }: { lng: string }) => {
+export const ProductsList = ({ products, isLoadingProducts, handleAddToCart, lng }: ProductsListProps) => {
   const { t } = useTranslation(lng);
-  const dispatch = useAppDispatch();
-  const products = await getArtworks();
 
-  const handleAddToCart = (item: CartModel) => {
-    dispatch(addToCart(item));
-  };
-
-  if (!products.records || products.records.length === 0) {
+  if (!products || (!isLoadingProducts && products.length === 0)) {
     return (
-      <div className=" mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+      <div className="animate-fadeIn mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
         <p className="text-sm font-medium">{t('components.products.noData')}</p>
       </div>
     );
   }
 
+  if (isLoadingProducts) {
+    return <Spinner />;
+  }
+
   return (
-    <ul className="flex flex-wrap justify-center">
-      {products.records.map((product) => (
-        <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
-      ))}
-    </ul>
+    <>
+      <ul className="flex flex-wrap justify-center">
+        {products.map((product) => (
+          <ProductsItem key={product.id} product={product} handleAddToCart={handleAddToCart} lng={lng} />
+        ))}
+      </ul>
+    </>
   );
 };

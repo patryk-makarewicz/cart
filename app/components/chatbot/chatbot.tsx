@@ -4,9 +4,9 @@ import { ChatCompletionRequestMessageRoleEnum } from 'openai';
 import { Widget, addResponseMessage, toggleMsgLoader } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 
-import { useTranslation } from '../../i18n/client';
-import { handleCallableFunction } from '../../lib/callableFunctions';
-import { createOpenAiChat } from '../../lib/openAiChat';
+import { useTranslation } from '@/i18n/client';
+import { handleCallableFunction } from '@/lib/callableFunctions';
+import { createOpenAiChat } from '@/lib/openAiChat';
 
 export const Chatbot = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);

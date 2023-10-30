@@ -2,10 +2,10 @@ import { Inter } from 'next/font/google';
 
 import { dir } from 'i18next';
 
-import { languages } from '../i18n/settings';
-import MainLayout from '../layouts/main';
-import { ReduxProvider } from '../redux/redux-provider';
-import '../styles/globals.css';
+import { languages } from '@/i18n/settings';
+import MainLayout from '@/layouts/main';
+import { ReduxProvider } from '@/redux/redux-provider';
+import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,13 +17,13 @@ export const metadata = {
   openGraph: {
     title: 'Cart App',
     description: 'This is app to manage cart',
-    images: ['/public/cover.png'],
+    images: ['/cover.png'],
     url: 'https://cart-patryk-makarewicz.vercel.app',
     siteName: 'Cart App'
   },
   metadataBase: new URL('https://cart-patryk-makarewicz.vercel.app'),
   icons: {
-    icon: '/app/favicon.ico'
+    icon: '/favicon.ico'
   }
 };
 

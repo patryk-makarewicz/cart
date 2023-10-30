@@ -7,7 +7,7 @@ type SpinnerProps = {
 
 export const Spinner = ({ width = '50px', height = '50px' }: SpinnerProps) => {
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center animate-fadeIn">
       <svg
         data-testid="spinner"
         width={width}
@@ -22,7 +22,7 @@ export const Spinner = ({ width = '50px', height = '50px' }: SpinnerProps) => {
         xmlSpace="preserve">
         <path
           id="spinner"
-          fill="#0278ab"
+          fill="#0369a1"
           d="M40,72C22.4,72,8,57.6,8,40C8,22.4,
 		22.4,8,40,8c17.6,0,32,14.4,32,32c0,1.1-0.9,2-2,2
 		s-2-0.9-2-2c0-15.4-12.6-28-28-28S12,24.6,12,40s12.6,
