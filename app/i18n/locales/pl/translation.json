@@ -1,9 +1,9 @@
 {
-  "greetings": "Aplikacja jest w budowie",
-
   "page": {
     "home": {
-      "button": "Zaczynamy"
+      "button": "Zaczynamy",
+      "greetings": "Ta strona internetowa jest w trakcie budowy.",
+      "technologies": "Projekt opiera się między innymi na technologiach takich jak Next.js 14 (App router), React.js 18, TypeScript, Redux Toolkit i Tailwind CSS. Będzie to fikcyjny sklep online."
     },
     "cart": {
       "title": "Twój koszyk",

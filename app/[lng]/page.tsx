@@ -20,12 +20,15 @@ const Home = async ({ params: { lng } }: lngProps) => {
   return (
     <>
       <PageWrapper>
-        <div className="m-auto flex flex-col items-center text-center text-xl font-semibold">
-          <Image priority src={Logo} width={200} height={200} alt="Logo makaDev" className="my-3" />
-          {t('greetings')}
-          <Link href={`/${lng}/products`} className="my-3">
-            <Button>{t('page.home.button')}</Button>
-          </Link>
+        <div className="m-auto flex flex-col items-center">
+          <div className="max-w-[486px] animate-fadeIn mx-auto my-3 flex flex-col items-center justify-center rounded-md border border-appGrayLight bg-white p-3">
+            <Image priority src={Logo} width={200} height={200} alt="Logo makaDev" className="my-3" />
+            <p className="text-center text-lg font-semibold">{t('page.home.greetings')}</p>
+            <p className="text-center">{t('page.home.technologies')}</p>
+            <Link href={`/${lng}/products`} className="my-3">
+              <Button>{t('page.home.button')}</Button>
+            </Link>
+          </div>
         </div>
       </PageWrapper>
       <Chatbot lng={lng} />
@@ -35,7 +38,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: upgrade to next 14
 //-----------------------------------------------
 //TODO: improvement UI - home page - add animation background from drei
 //TODO: improvement UI - products list - show big photo and bestsellers
@@ -47,5 +49,8 @@ export default Home;
 //TODO: add price range filters
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
+//TODO: add tests
+//-----------------------------------------------
 //TODO: add terms and cookies
 //TODO: add log in/out
+//-----------------------------------------------

@@ -1,9 +1,9 @@
 {
-  "greetings": "The application is under construction",
-
   "page": {
     "home": {
-      "button": "Get started"
+      "button": "Get started",
+      "greetings": "This website is under construction.",
+      "technologies": "The project is based on technologies such as Next.js 14 (App router), React.js 18, TypeScript, Redux Toolkit, and Tailwind CSS. It will be a fake online store."
     },
     "cart": {
       "title": "Your cart",
