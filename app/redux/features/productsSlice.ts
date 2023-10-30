@@ -1,17 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ArtworksListDTO } from '../../api/artworks/artworks.model';
+import { ArtworkModel, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
 
 export type ProductsState = {
-  products: ArtworksListDTO;
+  products: ArtworkModel[];
   loading: boolean;
   error: boolean;
+  params: {
+    sort: ArtworksListSortMethod;
+    filters: string[];
+  };
 };
 
 const initialState = {
-  products: { records: [] },
+  products: [],
   loading: true,
-  error: false
+  error: false,
+  params: {
+    sort: 'default',
+    filters: []
+  }
 } as ProductsState;
 
 const productsSlice = createSlice({
@@ -19,7 +27,7 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     setProductsData: (state, action) => {
-      state.products = action.payload;
+      state.products = action.payload.records;
       state.loading = false;
       state.error = false;
     },
