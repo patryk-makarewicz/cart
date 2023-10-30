@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
 import ErrorIcon from '@/assets/error.svg';
@@ -11,19 +11,17 @@ import { ProductsList } from '@/components/products/productsList';
 import { useFetchProducts } from '@/hooks/useFetchProducts';
 import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
-import { useAppDispatch } from '@/redux/hooks';
+import { setFilters, setSort } from '@/redux/features/productsSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 import { FilterProducts } from './filtersProducts';
 import { SortProducts } from './sortProducts';
 
 export const Products = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
-  const [params, setParams] = useState({
-    sort: 'default' as ArtworksListSortMethod,
-    filters: [] as string[]
-  });
 
   const dispatch = useAppDispatch();
+  const { params } = useAppSelector((state) => state.productsReducer);
   const { products, loading, error } = useFetchProducts(params);
 
   const handleAddToCart = (item: CartModel) => {
@@ -32,20 +30,12 @@ export const Products = ({ lng }: { lng: string }) => {
 
   const handleSelectSortMethod = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedSortMethod = event.target.value as ArtworksListSortMethod;
-    setParams({ ...params, sort: selectedSortMethod });
+    dispatch(setSort(selectedSortMethod));
   };
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    let updatedFilters = [...params.filters];
-
-    if (event.target.checked) {
-      updatedFilters.push(value);
-    } else {
-      updatedFilters = updatedFilters.filter((filter) => filter !== value);
-    }
-
-    setParams({ ...params, filters: updatedFilters });
+    const { value, checked } = event.target;
+    dispatch(setFilters({ value, checked }));
   };
 
   if (error) {

@@ -37,10 +37,21 @@ const productsSlice = createSlice({
     setError: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    setSort: (state, action) => {
+      state.params.sort = action.payload;
+    },
+    setFilters: (state, action) => {
+      const { value, checked } = action.payload;
+      const updatedFilters: string[] = checked
+        ? [...state.params.filters, value]
+        : state.params.filters.filter((filter) => filter !== value);
+
+      state.params.filters = updatedFilters;
     }
   }
 });
 
-export const { setProductsData, setLoading, setError } = productsSlice.actions;
+export const { setProductsData, setLoading, setError, setSort, setFilters } = productsSlice.actions;
 
 export default productsSlice.reducer;
