@@ -18,7 +18,7 @@ export const CartList = ({ cart, handleAddToCart, handleRemoveFromCart, lng }: C
   const { t } = useTranslation(lng);
 
   return (
-    <div className="mb-3 flex w-72 flex-col rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+    <div className="mb-3 flex w-72 flex-col rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
       {cart.length === 0 ? (
         <div className="flex h-48 flex-col items-center justify-evenly">
           <Image priority src={CartIcon} alt="Cart icon" />

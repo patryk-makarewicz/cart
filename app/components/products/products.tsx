@@ -40,7 +40,7 @@ export const Products = ({ lng }: { lng: string }) => {
 
   if (error) {
     return (
-      <div className="mx-auto flex w-72 flex-col rounded-md border border-gray-200 bg-white px-3 pt-3 md:w-96">
+      <div className="mx-auto flex w-72 flex-col rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
         <div className="flex h-48 flex-col items-center justify-evenly">
           <Image priority src={ErrorIcon} alt="Error icon" />
           <p className="text-sm font-medium">{t('page.products.error')}</p>

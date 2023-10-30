@@ -34,7 +34,7 @@ const CartPage = ({ params: { lng } }: lngProps) => {
   return (
     <PageWrapper>
       <div className="flex w-full flex-col items-center">
-        <h2 className="mb-3 text-xl font-semibold leading-7 text-gray-900">{t('page.cart.title')}</h2>
+        <h2 className="mb-3 text-xl font-semibold leading-7">{t('page.cart.title')}</h2>
         <CartList cart={cart} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} lng={lng} />
         <Summary cart={cart} lng={lng} resetCart={handleResetCart} />
         <Link href={`/${lng}/products`} className="pb-6">

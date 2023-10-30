@@ -9,7 +9,7 @@ export const Footer = ({ lng }: { lng: string }) => {
   const year = date.getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-white">
+    <footer className="border-t border-appGrayLight bg-white">
       <div className="mx-auto flex max-w-screen-2xl items-center justify-center p-2.5">
         <Image priority src={Logo} width={40} height={40} alt="Logo makaDev" className="mr-3" />
         <p className="text-center text-sm">{t('footer.copyright', { year: year })}</p>

@@ -35,9 +35,8 @@ const Home = async ({ params: { lng } }: lngProps) => {
 
 export default Home;
 
-//TODO: move filtering and sort method to Redux
-//TODO: custom colors in Tailwind and use it in the app
 //TODO: add styles to sorting and filtering
+//TODO: bug - dropdown must remember sort value after change tab and back
 //-----------------------------------------------
 //TODO: upgrade to next 14
 //-----------------------------------------------
