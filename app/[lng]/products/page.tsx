@@ -1,6 +1,7 @@
 import { lngProps } from '@/[lng]/page';
 import { PageWrapper } from '@/[lng]/pageWrapper';
 
+import { Featured } from '@/components/featured';
 import { Products } from '@/components/products';
 import { Category } from '@/components/typography/category';
 import { useTranslation } from '@/i18n';
@@ -12,6 +13,7 @@ const ProductsPage = async ({ params: { lng } }: lngProps) => {
     <>
       <PageWrapper>
         <div className="mx-auto flex w-full flex-col">
+          <Featured lng={lng} />
           <Category category={t('page.products.category')} subcategory={t('page.products.subcategory')} />
           <Products lng={lng} />
         </div>

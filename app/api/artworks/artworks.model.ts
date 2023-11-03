@@ -12,6 +12,10 @@ export type ArtworkModel = {
     name: string;
     recommendations: string;
     currency: string;
+    description?: string;
+    dimensionsWidth?: number;
+    dimensionsHeight?: number;
+    size?: number;
   };
 };
 

@@ -1,5 +1,5 @@
-import { getArtworksMock } from '@/api/artworks/artworks.mock';
-import { ArtworksListDTO, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { getArtworksMock, getFeaturedMock } from '@/api/artworks/artworks.mock';
+import { ArtworkModel, ArtworksListDTO, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
 import { BASE_URL, headers, useAPImocks } from '@/api/config';
 
 export const getArtworks = async (sort: ArtworksListSortMethod, filters: string[]): Promise<ArtworksListDTO> => {
@@ -13,7 +13,21 @@ export const getArtworks = async (sort: ArtworksListSortMethod, filters: string[
       headers,
       next: { revalidate: 0 }
     });
+
     const artworks = await data.json();
     return artworks;
+  }
+};
+
+export const getFeatured = async (): Promise<ArtworkModel> => {
+  if (useAPImocks) {
+    return getFeaturedMock();
+  } else {
+    const data = await fetch(`${BASE_URL}/artworks/recp7Ph6m0VYKoBkO`, {
+      headers
+    });
+
+    const featured = await data.json();
+    return featured;
   }
 };
