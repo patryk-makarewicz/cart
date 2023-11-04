@@ -27,7 +27,7 @@ export const Header = ({ lng }: { lng: string }) => {
   ];
 
   return (
-    <header className="border-b border-appGrayLight bg-white">
+    <header className="border-b border-appGrayLight bg-white fixed top-0 z-10 w-full">
       <div className="mx-auto flex max-w-screen-xl items-center justify-between p-2.5">
         <div className="flex items-center">
           <Link href={`/${lng}`}>
