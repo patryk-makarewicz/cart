@@ -17,7 +17,12 @@
     "products": {
       "error": "Upss error, odśwież stronę i spróbuj ponownie",
       "category": "Fotografia",
-      "subcategory": "Zdjęcia Premium"
+      "subcategory": "Zdjęcia Premium",
+      "photoOfTheDay": "Zdjęcie dnia",
+      "details": "Detale",
+      "size": "Rozmiar",
+      "pixel": "pixel",
+      "mb": "mb"
     }
   },
 
@@ -29,7 +34,8 @@
     "products": {
       "noData": "Brak danych",
       "add": "Dodaj do koszyka",
-      "category": "Kategoria"
+      "category": "Kategoria",
+      "bestseller": "Bestseller"
     },
     "sort": {
       "sortBy": "Sortowanie",

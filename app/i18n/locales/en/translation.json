@@ -17,7 +17,12 @@
     "products": {
       "error": "Upss error, please refresh page a try again",
       "category": "Photography",
-      "subcategory": "Premium Photos"
+      "subcategory": "Premium Photos",
+      "photoOfTheDay": "Photo of the day",
+      "details": "Details",
+      "size": "Size",
+      "pixel": "pixel",
+      "mb": "mb"
     }
   },
 
@@ -29,7 +34,8 @@
     "products": {
       "noData": "No data",
       "add": "Add to cart",
-      "category": "Category"
+      "category": "Category",
+      "bestseller": "Bestseller"
     },
     "sort": {
       "sortBy": "Sort by",
