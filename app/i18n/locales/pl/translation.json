@@ -34,7 +34,8 @@
     "products": {
       "noData": "Brak danych",
       "add": "Dodaj do koszyka",
-      "category": "Kategoria"
+      "category": "Kategoria",
+      "bestseller": "Bestseller"
     },
     "sort": {
       "sortBy": "Sortowanie",

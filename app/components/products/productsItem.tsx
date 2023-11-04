@@ -18,7 +18,7 @@ export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProp
 
   return (
     <li className="m-3 w-72 overflow-hidden rounded-md border border-appGrayLight bg-white animate-fadeIn">
-      <div className="h-96 w-full">
+      <div className="h-96 w-full relative">
         <Placeholder hide={loaded} />
         <img
           src={product.fields.imageSrc}
@@ -27,6 +27,11 @@ export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProp
           onLoad={onLoad}
           className={`${!loaded ? 'opacity-0' : 'opacity-100 animate-fadeIn'}  h-full w-full object-cover `}
         />
+        {loaded && product.fields.bestseller === 'true' && (
+          <div className="absolute top-0 left-0 bg-white px-2 py-1 text-xs text-appGray rounded-ee border-solid border-b border-r border-appGrayLight ">
+            {t('components.products.bestseller')}
+          </div>
+        )}
       </div>
 
       <div className="p-3">

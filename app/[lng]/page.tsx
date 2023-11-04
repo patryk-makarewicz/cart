@@ -39,8 +39,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: improvement UI - home page - add animation background from drei
-//TODO: improvement UI - products list - show big photo and bestsellers
+//TODO: improvement UI - home page - add animation background
 //TODO: improvement UI - layout products page and mobile version view
 //TODO: improvement UI - add custom styles to dropdown
 //TODO: improvement UI - add custom styles to checkbox
