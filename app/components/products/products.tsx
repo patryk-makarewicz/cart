@@ -6,6 +6,7 @@ import { ChangeEvent } from 'react';
 
 import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
 import ErrorIcon from '@/assets/error.svg';
+import FiltersIcon from '@/assets/filters.svg';
 import { Chatbot } from '@/components/chatbot';
 import { ProductsList } from '@/components/products/productsList';
 import { useFetchProducts } from '@/hooks/useFetchProducts';
@@ -51,6 +52,10 @@ export const Products = ({ lng }: { lng: string }) => {
 
   return (
     <>
+      <button className="fixed right-3 z-10 rounded-md border border-appGrayLight px-3 py-1 flex items-center w-fit bg-appPrimary text-white text-sm transition duration-300 ease-in-out hover:opacity-90 lg:hidden">
+        <Image priority src={FiltersIcon} width={18} height={18} alt="Settings icon" className="mr-2" />
+        {t('page.products.buttonFilters')}
+      </button>
       <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
       <div className="flex h-full w-full">
         <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
