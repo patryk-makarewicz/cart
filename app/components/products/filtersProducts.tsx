@@ -35,7 +35,8 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
             value={option.value}
             checked={params.filters.includes(option.value)}
             onChange={handleCheckboxChange}
-            className="mr-3 mb-5 rounded h-5 w-5"
+            className="mr-3 mb-5 h-5 w-5"
+            style={{ accentColor: '#0369a1' }}
           />
           {option.label}
         </label>

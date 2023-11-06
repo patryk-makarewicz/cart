@@ -90,9 +90,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: improvement UI - add custom styles to dropdown
 //TODO: improvement UI - layout products page and mobile version view
-//TODO: improvement UI - add custom styles to checkbox
 //TODO: improvement UI - add background in products and cart tabs
 //TODO: improvement UI - cart tab
 //-----------------------------------------------
