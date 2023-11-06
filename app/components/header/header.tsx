@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import FlagEn from '@/assets/lang_en.png';
 import FlagPl from '@/assets/lang_pl.png';
-import Logo from '@/assets/logo_makaDev.png';
+import Logo from '@/assets/logo/makaDev.png';
 import CartIcon from '@/assets/shopping_cart.svg';
 import { Navigation } from '@/components/navigation';
 import { useTranslation } from '@/i18n/client';
@@ -27,7 +27,7 @@ export const Header = ({ lng }: { lng: string }) => {
   ];
 
   return (
-    <header className="border-b border-appGrayLight bg-white fixed top-0 z-10 w-full">
+    <header className="border-b border-appGrayLight bg-white fixed top-0 z-20 w-full">
       <div className="mx-auto flex max-w-screen-xl items-center justify-between p-2.5">
         <div className="flex items-center">
           <Link href={`/${lng}`}>
