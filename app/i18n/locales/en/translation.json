@@ -23,7 +23,8 @@
       "size": "Size",
       "pixel": "pixel",
       "mb": "mb",
-      "buttonFilters": "Filters"
+      "buttonFilters": "Filters",
+      "buttonClose": "Close"
     }
   },
 

@@ -22,10 +22,15 @@ module.exports = {
         fadeIn: {
           from: { opacity: 0 },
           to: { opacity: 1 }
+        },
+        fadeOut: {
+          from: { opacity: 1 },
+          to: { opacity: 0 }
         }
       },
       animation: {
-        fadeIn: 'fadeIn 0.5s'
+        fadeIn: 'fadeIn 0.5s',
+        fadeOut: 'fadeOut 0.5s'
       }
     }
   },

@@ -90,10 +90,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: improvement UI - layout products page and mobile version view
-//TODO: improvement UI - add background in products and cart tabs
-//TODO: improvement UI - cart tab
-//-----------------------------------------------
 //TODO: add price range filters
 //TODO: add limit for one item in cart
 //TODO: send cart -> basic solution console.log it
@@ -102,4 +98,6 @@ export default Home;
 //TODO: add terms and cookies
 //TODO: add log in/out
 //TODO: improvement UI - home tab - animate background
+//TODO: improvement UI - add background in products and cart tabs
+//TODO: improvement UI - cart tab
 //-----------------------------------------------

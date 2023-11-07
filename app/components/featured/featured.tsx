@@ -18,7 +18,7 @@ export const Featured = async ({ lng }: { lng: string }) => {
         <img
           src={featuredProduct.fields.imageSrc}
           alt={featuredProduct.fields.imageSrc}
-          className={`animate-fadeIn max-h-[500px] w-full object-cover mb-4`}
+          className="animate-fadeIn max-h-[500px] w-full object-cover mb-4"
         />
         <div className="absolute bottom-0 font-semibold left-0 bg-appBlueLight px-8 py-2">
           {t('page.products.photoOfTheDay')}
