@@ -10,7 +10,7 @@ import { Button } from '@/components/button';
 import { CartList } from '@/components/cart/cartList';
 import { Summary } from '@/components/cart/summary';
 import { useTranslation } from '@/i18n/client';
-import { addToCart, removeFromCart, resetCart } from '@/redux/features/cartSlice';
+import { addToCart, removeFromCart, resetCart, sendCart } from '@/redux/features/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { RootState } from '@/redux/store';
 
@@ -30,13 +30,16 @@ const CartPage = ({ params: { lng } }: lngProps) => {
   const handleResetCart = () => {
     dispatch(resetCart());
   };
+  const handleSendCart = (cart: CartModel[]) => {
+    dispatch(sendCart(cart));
+  };
 
   return (
     <PageWrapper>
       <div className="flex w-full flex-col items-center">
         <h2 className="mb-3 text-xl font-semibold leading-7">{t('page.cart.title')}</h2>
         <CartList cart={cart} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} lng={lng} />
-        <Summary cart={cart} lng={lng} resetCart={handleResetCart} />
+        <Summary cart={cart} lng={lng} resetCart={handleResetCart} handleSendCart={handleSendCart} />
         <Link href={`/${lng}/products`} className="pb-6">
           <Button>{t('page.cart.back')}</Button>
         </Link>

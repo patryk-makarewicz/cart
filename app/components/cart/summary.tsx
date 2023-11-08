@@ -6,9 +6,10 @@ type SummaryProps = {
   cart: CartModel[];
   lng: string;
   resetCart: () => void;
+  handleSendCart: (cart: CartModel[]) => void;
 };
 
-export const Summary = ({ cart, lng, resetCart }: SummaryProps) => {
+export const Summary = ({ cart, lng, resetCart, handleSendCart }: SummaryProps) => {
   const { t } = useTranslation(lng);
 
   if (cart.length === 0) {
@@ -24,7 +25,12 @@ export const Summary = ({ cart, lng, resetCart }: SummaryProps) => {
         {t('page.cart.totalPrice')}:{' '}
         {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0).toFixed(2)}$
       </p>
-      <Button onClick={resetCart}>{t('page.cart.resetCart')}</Button>
+      <div className="flex justify-center gap-4">
+        <Button onClick={resetCart}>{t('page.cart.resetCart')}</Button>
+        <Button onClick={() => handleSendCart(cart)} kind="secondary">
+          {t('page.cart.sendCart')}
+        </Button>
+      </div>
     </div>
   );
 };

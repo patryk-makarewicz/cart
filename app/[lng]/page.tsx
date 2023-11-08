@@ -92,7 +92,7 @@ export default Home;
 //-----------------------------------------------
 //TODO: add price range filters
 //TODO: add limit for one item in cart
-//TODO: send cart -> basic solution console.log it
+//TODO: send cart - add info with success or error
 //TODO: add tests
 //-----------------------------------------------
 //TODO: add terms and cookies
