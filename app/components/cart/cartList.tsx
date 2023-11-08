@@ -12,9 +12,10 @@ type CartListProps = {
   handleAddToCart: (item: CartModel) => void;
   handleRemoveFromCart: (item: CartModel) => void;
   lng: string;
+  isSending: boolean;
 };
 
-export const CartList = ({ cart, handleAddToCart, handleRemoveFromCart, lng }: CartListProps) => {
+export const CartList = ({ cart, handleAddToCart, handleRemoveFromCart, lng, isSending }: CartListProps) => {
   const { t } = useTranslation(lng);
 
   return (
@@ -33,6 +34,7 @@ export const CartList = ({ cart, handleAddToCart, handleRemoveFromCart, lng }: C
               lng={lng}
               handleAddToCart={handleAddToCart}
               handleRemoveFromCart={handleRemoveFromCart}
+              isSending={isSending}
             />
           ))}
         </ul>

@@ -92,12 +92,12 @@ export default Home;
 //-----------------------------------------------
 //TODO: add price range filters
 //TODO: add limit for one item in cart
-//TODO: send cart - add info with success or error
 //TODO: add tests
 //-----------------------------------------------
 //TODO: add terms and cookies
-//TODO: add log in/out
 //TODO: improvement UI - home tab - animate background
 //TODO: improvement UI - add background in products and cart tabs
 //TODO: improvement UI - cart tab
+//TODO: improvement UI - add info on send cart
 //-----------------------------------------------
+//TODO: add log in/out
