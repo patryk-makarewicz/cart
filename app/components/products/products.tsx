@@ -67,16 +67,16 @@ export const Products = ({ lng }: { lng: string }) => {
       {!isFiltersOpen && (
         <button
           onClick={onHandleFilters}
-          className="fixed right-3 z-10 rounded-md border border-appGrayLight px-3 py-1 flex items-center w-fit bg-appPrimary text-white text-sm transition duration-300 ease-in-out hover:opacity-90 lg:hidden">
+          className="fixed right-3 z-10 flex w-fit items-center rounded-md border border-appGrayLight bg-appPrimary px-3 py-1 text-sm text-white transition duration-300 ease-in-out hover:opacity-90 lg:hidden">
           <Image priority src={FiltersIcon} width={18} height={18} alt="Settings icon" className="mr-2" />
           {t('page.products.buttonFilters')}
         </button>
       )}
       {isFiltersOpen && (
         <div
-          style={{ backdropFilter: 'blur(10px)' }}
-          className="fixed top-3 -left-1 z-10 w-[101%] h-full animate-fadeIn">
-          <div className="w-fit mx-auto mt-20 rounded-md border border-appGrayLight bg-white px-3 py-4 flex flex-col">
+          style={{ backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
+          className="fixed -left-1 top-3 z-10 h-full w-[101%] animate-fadeIn">
+          <div className="mx-auto mt-20 flex w-fit flex-col rounded-md border border-appGrayLight bg-white px-3 py-4">
             <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
             <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
             <Button onClick={onHandleFilters}>{t('page.products.buttonClose')}</Button>

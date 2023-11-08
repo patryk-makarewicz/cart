@@ -59,17 +59,17 @@ const Home = async ({ params: { lng } }: lngProps) => {
             backgroundImage: `url(${bg.src})`,
             filter: 'blur(8px)'
           }}
-          className="w-full h-full min-h-full bg-cover bg-center bg-no-repeat z-0 fixed left-0 top-0 object-fit"
+          className="object-fit fixed left-0 top-0 z-0 h-full min-h-full w-full bg-cover bg-center bg-no-repeat"
         />
         <div className="m-auto flex flex-col items-center">
-          <div className="max-w-[486px] animate-fadeIn backdrop-blur-xl flex flex-col items-center justify-center rounded-md border border-appGrayLight p-3">
+          <div className="flex max-w-[486px] animate-fadeIn flex-col items-center justify-center rounded-md border border-appGrayLight p-3 backdrop-blur-xl">
             <Image priority src={LogoMakaDev} width={140} height={140} alt="Logo makaDev" className="my-3" />
             <p className="text-center text-lg font-semibold">{t('page.home.greetings')}</p>
             <p className="text-center">{t('page.home.technologies')}</p>
             <ul>
               {techLogos.map((tech) => (
                 <li key={tech.description} className="flex items-center">
-                  <div className="my-3 mr-2 p-1 bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <div className="my-3 mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-white p-1">
                     <Image priority src={tech.logo} width={24} alt={tech.alt} />
                   </div>
                   {tech.description}

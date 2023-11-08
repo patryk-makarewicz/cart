@@ -17,18 +17,18 @@ export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProp
   const { onLoad, loaded, refPhoto } = usePhotoLoading();
 
   return (
-    <li className="m-3 w-72 overflow-hidden rounded-md border border-appGrayLight bg-white animate-fadeIn">
-      <div className="h-96 w-full relative">
+    <li className="m-3 w-72 animate-fadeIn overflow-hidden rounded-md border border-appGrayLight bg-white">
+      <div className="relative h-96 w-full">
         <Placeholder hide={loaded} />
         <img
           src={product.fields.imageSrc}
           alt={product.fields.imageAlt}
           ref={refPhoto}
           onLoad={onLoad}
-          className={`${!loaded ? 'opacity-0' : 'opacity-100 animate-fadeIn'}  h-full w-full object-cover `}
+          className={`${!loaded ? 'opacity-0' : 'animate-fadeIn opacity-100'}  h-full w-full object-cover `}
         />
         {loaded && product.fields.bestseller === 'true' && (
-          <div className="absolute top-0 left-0 bg-white px-2 py-1 text-xs text-appGray rounded-ee border-solid border-b border-r border-appGrayLight ">
+          <div className="absolute left-0 top-0 rounded-ee border-b border-r border-solid border-appGrayLight bg-white px-2 py-1 text-xs text-appGray ">
             {t('components.products.bestseller')}
           </div>
         )}
@@ -39,7 +39,7 @@ export const ProductsItem = ({ product, handleAddToCart, lng }: ProductsItemProp
           {t(`components.filters.${product.fields.category}`)}
         </span>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-appGray">{product.fields.name}</p>
-        <p className="mb-2 text-base font-semibold leading-">
+        <p className="leading- mb-2 text-base font-semibold">
           {product.fields.price.toFixed(2)} {product.fields.currency}
         </p>
         <div className="mb-2 flex justify-evenly">
