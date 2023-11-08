@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { ChangeEvent, ReactNode, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { ArtworksListSortMethod, CartModel } from '@/api/artworks/artworks.model';
 import ErrorIcon from '@/assets/error.svg';
