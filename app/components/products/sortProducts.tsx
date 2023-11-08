@@ -27,7 +27,7 @@ export const SortProducts = ({ params, handleSelectSortMethod, lng }: SortProduc
   ];
 
   return (
-    <div className="flex justify-end">
+    <div className="flex">
       <Image className="mr-2" priority src={SortIcon} alt="Sort icon" />
       <span className="text-appGray">{t('components.sort.sortBy')}:</span>
       <select onChange={handleSelectSortMethod} value={params.sort} className="rounded-md bg-appBlueLight">

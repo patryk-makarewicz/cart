@@ -63,6 +63,7 @@ export const Products = ({ lng }: { lng: string }) => {
 
   return (
     <>
+      {/* ----------  On mobile device ---------- */}
       {!isFiltersOpen && (
         <button
           onClick={onHandleFilters}
@@ -82,9 +83,11 @@ export const Products = ({ lng }: { lng: string }) => {
           </div>
         </div>
       )}
-
+      {/* ---------- On desktop device ---------- */}
       <VisibleOnDesktop>
-        <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
+        <div className="flex justify-end">
+          <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
+        </div>
       </VisibleOnDesktop>
       <div className="flex h-full w-full">
         <VisibleOnDesktop>
@@ -92,6 +95,7 @@ export const Products = ({ lng }: { lng: string }) => {
         </VisibleOnDesktop>
         <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
       </div>
+      {/* ---------- On mobile and desktop device ---------- */}
       <Chatbot lng={lng} />
     </>
   );
