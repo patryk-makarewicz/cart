@@ -9,9 +9,10 @@ type CartItemProps = {
   lng: string;
   handleAddToCart: (item: CartModel) => void;
   handleRemoveFromCart: (item: CartModel) => void;
+  isSending: boolean;
 };
 
-export const CartItem = ({ item, lng, handleAddToCart, handleRemoveFromCart }: CartItemProps) => {
+export const CartItem = ({ item, lng, handleAddToCart, handleRemoveFromCart, isSending }: CartItemProps) => {
   const { t } = useTranslation(lng);
 
   return (
@@ -23,13 +24,13 @@ export const CartItem = ({ item, lng, handleAddToCart, handleRemoveFromCart }: C
           {item.fields.price.toFixed(2)}$ {item.fields.currency}
         </p>
         <div className="flex items-center gap-2">
-          <Button kind="addOrRemove" onClick={() => handleAddToCart(item)}>
+          <Button kind="addOrRemove" onClick={() => handleAddToCart(item)} disabled={isSending}>
             +
           </Button>
           <p className="text-base leading-6 ">
             {t('page.cart.items')}: {item.quantity}
           </p>
-          <Button kind="addOrRemove" onClick={() => handleRemoveFromCart(item)}>
+          <Button kind="addOrRemove" onClick={() => handleRemoveFromCart(item)} disabled={isSending}>
             -
           </Button>
         </div>

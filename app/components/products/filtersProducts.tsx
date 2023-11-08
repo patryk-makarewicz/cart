@@ -26,7 +26,7 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
   ];
 
   return (
-    <div className="flex flex-col min-w-[140px] pt-3">
+    <div className="flex min-w-[140px] flex-col pt-3">
       <p className="mb-5 font-semibold">{t('components.products.category')}</p>
       {FilterOptions.map((option) => (
         <label key={option.value} className="flex items-start">
@@ -35,7 +35,7 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
             value={option.value}
             checked={params.filters.includes(option.value)}
             onChange={handleCheckboxChange}
-            className="mr-3 mb-5 h-5 w-5"
+            className="mb-5 mr-3 h-5 w-5"
             style={{ accentColor: '#0369a1' }}
           />
           {option.label}

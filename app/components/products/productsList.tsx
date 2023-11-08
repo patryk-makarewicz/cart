@@ -15,7 +15,7 @@ export const ProductsList = ({ products, isLoadingProducts, handleAddToCart, lng
 
   if (!products || (!isLoadingProducts && products.length === 0)) {
     return (
-      <div className="animate-fadeIn mx-auto my-3 flex h-48 w-72 flex-col items-center justify-center rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
+      <div className="mx-auto my-3 flex h-48 w-72 animate-fadeIn flex-col items-center justify-center rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
         <p className="text-sm font-medium">{t('components.products.noData')}</p>
       </div>
     );

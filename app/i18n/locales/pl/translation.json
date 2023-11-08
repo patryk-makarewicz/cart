@@ -8,6 +8,7 @@
     "cart": {
       "title": "Twój koszyk",
       "resetCart": "Wyczyść koszyk",
+      "sendCart": "Zamów",
       "back": "Powrót do produktów",
       "itemsInCart": "Ilość w koszyku",
       "totalPrice": "Cena całkowita",

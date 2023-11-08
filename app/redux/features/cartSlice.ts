@@ -35,9 +35,13 @@ export const cart = createSlice({
           state.cart = state.cart.filter((product) => product.id !== id);
         }
       }
+    },
+    sendCart: (state, action: PayloadAction<CartModel[]>) => {
+      console.log(action.payload);
+      state.cart = [];
     }
   }
 });
 
-export const { addToCart, removeFromCart, resetCart } = cart.actions;
+export const { addToCart, removeFromCart, resetCart, sendCart } = cart.actions;
 export default cart.reducer;
