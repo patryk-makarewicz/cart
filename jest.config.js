@@ -15,6 +15,7 @@ const customJestConfig = {
   coverageDirectory: '<rootDir>../.coverage',
   collectCoverageFrom: [
     '<rootDir>/**/*.{ts,tsx}',
+    '!<rootDir>/**/index.{ts,tsx}',
     '!<rootDir>/**/*.model.*',
     '!<rootDir>/**/*.styles.*',
     '!<rootDir>/**/*.d.ts',

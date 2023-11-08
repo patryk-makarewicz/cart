@@ -27,10 +27,10 @@ export const SortProducts = ({ params, handleSelectSortMethod, lng }: SortProduc
   ];
 
   return (
-    <div className="flex justify-end">
+    <div className="flex">
       <Image className="mr-2" priority src={SortIcon} alt="Sort icon" />
-      <span className="mr-2 text-appGray">{t('components.sort.sortBy')}:</span>
-      <select onChange={handleSelectSortMethod} value={params.sort} className="w-40">
+      <span className="text-appGray">{t('components.sort.sortBy')}:</span>
+      <select onChange={handleSelectSortMethod} value={params.sort} className="rounded-md bg-appBlueLight">
         {SortOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

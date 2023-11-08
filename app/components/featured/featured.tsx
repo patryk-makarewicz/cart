@@ -10,7 +10,7 @@ export const Featured = async ({ lng }: { lng: string }) => {
   }
 
   return (
-    <div className="border-b border-appGrayLight pb-14 mb-12 mt-4">
+    <div className="border-b border-appGrayLight pb-14 mb-12">
       <div className="flex justify-between items-center mb-6">
         <p className="text-xl font-bold">{featuredProduct.fields.name}</p>
       </div>
@@ -18,7 +18,7 @@ export const Featured = async ({ lng }: { lng: string }) => {
         <img
           src={featuredProduct.fields.imageSrc}
           alt={featuredProduct.fields.imageSrc}
-          className={`animate-fadeIn max-h-[500px] w-full object-cover mb-4`}
+          className="animate-fadeIn max-h-[500px] w-full object-cover mb-4"
         />
         <div className="absolute bottom-0 font-semibold left-0 bg-appBlueLight px-8 py-2">
           {t('page.products.photoOfTheDay')}

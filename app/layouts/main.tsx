@@ -27,7 +27,7 @@ const MainLayout = ({ children, lng }: MainLayoutProps) => {
   return (
     <div className="animate-fadeIn visible">
       <Header lng={lng} />
-      <main className="m-auto flex max-w-screen-xl min-h-[calc(100vh-120px)] p-2.5">{children}</main>
+      <main>{children}</main>
       <Footer lng={lng} />
     </div>
   );

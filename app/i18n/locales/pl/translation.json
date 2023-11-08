@@ -3,7 +3,7 @@
     "home": {
       "button": "Zaczynamy",
       "greetings": "Ta strona internetowa jest w trakcie budowy.",
-      "technologies": "Projekt opiera się między innymi na technologiach takich jak Next.js 14 (App router), React.js 18, TypeScript, Redux Toolkit i Tailwind CSS. Będzie to fikcyjny sklep online."
+      "technologies": "Projekt opiera się między innymi na technologiach takich jak:"
     },
     "cart": {
       "title": "Twój koszyk",
@@ -22,7 +22,9 @@
       "details": "Detale",
       "size": "Rozmiar",
       "pixel": "pixel",
-      "mb": "mb"
+      "mb": "mb",
+      "buttonFilters": "Filtry",
+      "buttonClose": "Zamknij"
     }
   },
 
