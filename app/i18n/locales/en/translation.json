@@ -8,6 +8,7 @@
     "cart": {
       "title": "Your cart",
       "resetCart": "Reset cart",
+      "sendCart": "Order",
       "back": "Back to products",
       "itemsInCart": "Items in cart",
       "totalPrice": "Total price",
