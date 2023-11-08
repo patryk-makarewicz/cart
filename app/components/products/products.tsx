@@ -46,7 +46,9 @@ export const Products = ({ lng }: { lng: string }) => {
     setIsFiltersOpen((prev) => !prev);
   };
 
-  const VisibleOnDesktop = ({ children }: { children: ReactNode }) => <div className="hidden lg:block">{children}</div>;
+  const VisibleOnDesktop = ({ children }: { children: React.ReactNode }) => (
+    <div className="hidden lg:block">{children}</div>
+  );
 
   if (error) {
     return (
