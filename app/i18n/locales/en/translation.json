@@ -2,7 +2,7 @@
   "page": {
     "home": {
       "button": "Get started",
-      "greetings": "This website is under construction.",
+      "greetings": "This is the training website of the eShop.",
       "technologies": "The project is based on technologies such as:"
     },
     "cart": {
