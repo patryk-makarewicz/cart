@@ -25,8 +25,15 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
     { value: 'nature', label: t('components.filters.nature') }
   ];
 
+  const RangeOptions = [
+    { value: ['<20'], label: t('components.range.lower') },
+    { value: ['>20', '<100'], label: t('components.range.middle') },
+    { value: ['>100', '<200'], label: t('components.range.higher') },
+    { value: ['>200'], label: t('components.range.more') }
+  ];
+
   return (
-    <div className="flex min-w-[140px] flex-col pt-3">
+    <div className="flex min-w-[160px] flex-col pt-3">
       <p className="mb-5 font-semibold">{t('components.products.category')}</p>
       {FilterOptions.map((option) => (
         <label key={option.value} className="flex items-start">
@@ -35,6 +42,21 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
             value={option.value}
             checked={params.filters.includes(option.value)}
             onChange={handleCheckboxChange}
+            className="mb-5 mr-3 h-5 w-5"
+            style={{ accentColor: '#0369a1' }}
+          />
+          {option.label}
+        </label>
+      ))}
+      <div className="mb-4 border-b-2 border-s-appGray" />
+      <p className="mb-5 font-semibold">{t('components.products.range')}</p>
+      {RangeOptions.map((option) => (
+        <label key={option.value[0]} className="flex items-start">
+          <input
+            type="checkbox"
+            // value={option.value}
+            // checked={params.filters.includes(option.value)}
+            // onChange={handleCheckboxChange}
             className="mb-5 mr-3 h-5 w-5"
             style={{ accentColor: '#0369a1' }}
           />

@@ -7,7 +7,9 @@ export const getArtworks = async (sort: ArtworksListSortMethod, filters: string[
     return getArtworksMock();
   } else {
     const filterQuery =
-      filters.length > 0 ? `&filterByFormula=OR(${filters.map((filter) => `{category}="${filter}"`).join(', ')})` : '';
+      filters.length > 0
+        ? `&filterByFormula=AND(OR(${filters.map((filter) => `{category}="${filter}"`).join(', ')}))`
+        : '';
 
     const data = await fetch(`${BASE_URL}/artworks?view=default&${sort}${filterQuery}`, {
       headers,

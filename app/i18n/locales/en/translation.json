@@ -38,6 +38,7 @@
       "noData": "No data",
       "add": "Add to cart",
       "category": "Category",
+      "range": "Price range",
       "bestseller": "Bestseller"
     },
     "sort": {
@@ -58,6 +59,12 @@
       "premium": "Premium",
       "landmarks": "Landmarks",
       "nature": "Nature"
+    },
+    "range": {
+      "lower": "Lower then $20",
+      "middle": "$20 - $100",
+      "higher": "$100 - $200",
+      "more": "More the $200"
     }
   },
 

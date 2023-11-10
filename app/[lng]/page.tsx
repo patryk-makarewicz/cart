@@ -50,7 +50,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: add price range filters
 //TODO: add limit for one item in cart
 //TODO: add tests
 //-----------------------------------------------
