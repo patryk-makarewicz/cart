@@ -34,3 +34,8 @@ export enum ArtworksListSortMethod {
   NAME = 'sort%5B0%5D%5Bfield%5D=name',
   NAME_DESC = 'sort%5B0%5D%5Bfield%5D=name&sort%5B0%5D%5Bdirection%5D=desc'
 }
+
+export type FiltersParams = {
+  category: string[];
+  range: string[];
+};

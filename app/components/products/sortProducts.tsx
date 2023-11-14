@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 import { ChangeEvent } from 'react';
 
-import { ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { ArtworksListSortMethod, FiltersParams } from '@/api/artworks/artworks.model';
 import SortIcon from '@/assets/sort.svg';
 import { useTranslation } from '@/i18n/client';
 
 type SortProductsProps = {
   params: {
     sort: ArtworksListSortMethod;
-    filters: string[];
+    filters: FiltersParams;
   };
   handleSelectSortMethod: (event: ChangeEvent<HTMLSelectElement>) => void;
   lng: string;
