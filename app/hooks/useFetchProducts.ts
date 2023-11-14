@@ -18,12 +18,40 @@ export const useFetchProducts = (params: { sort: ArtworksListSortMethod; filters
 
   useEffect(() => {
     const fetchProducts = () => {
-      const filterQuery =
+      const categoryQuery =
         params.filters.category.length > 0
-          ? `&filterByFormula=AND(OR(${params.filters.category.map((filter) => `{category}="${filter}"`).join(', ')}))`
+          ? `OR(${params.filters.category.map((filter) => `{category}="${filter}"`).join(',')})`
           : '';
+
+      let rangeQuery = '';
+
+      switch (params.filters.range) {
+        case 'lower':
+          rangeQuery = `AND({price}<20)`;
+          break;
+        case 'middle':
+          rangeQuery = `AND({price}>20,{price}<100)`;
+          break;
+        case 'higher':
+          rangeQuery = `AND({price}>100,{price}<200)`;
+          break;
+        case 'more':
+          rangeQuery = `AND({price}>200)`;
+          break;
+        case 'none':
+          rangeQuery = ``;
+          break;
+        default:
+          rangeQuery = ``;
+          break;
+      }
+
+      const rangeFragment = categoryQuery && rangeQuery ? `,${rangeQuery}` : rangeQuery;
+
       axios
-        .get(`${BASE_URL}/artworks?view=default&${params.sort}${filterQuery}`, { headers })
+        .get(`${BASE_URL}/artworks?view=default&${params.sort}&filterByFormula=AND(${categoryQuery}${rangeFragment})`, {
+          headers
+        })
         .then((response) => {
           dispatch(setProductsData(response.data));
           dispatch(setLoading(false));
@@ -38,5 +66,5 @@ export const useFetchProducts = (params: { sort: ArtworksListSortMethod; filters
     fetchProducts();
   }, [params.sort, params.filters]);
 
-  return { products: productsList, loading: isLoadingProducts, error: isErrorProducts }; // Return data from Redux state instead of local state
+  return { products: productsList, loading: isLoadingProducts, error: isErrorProducts };
 };

@@ -57,7 +57,7 @@ export const FilterProducts = ({
       <div className="mb-4 border-b-2 border-s-appGray" />
       <p className="mb-5 font-semibold">{t('components.products.range')}</p>
       {RangeOptions.map((option) => (
-        <label key={option.value[0]} className="flex items-start">
+        <label key={option.value} className="flex items-start">
           <input
             type="checkbox"
             value={option.value}
