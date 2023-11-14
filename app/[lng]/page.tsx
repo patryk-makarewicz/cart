@@ -50,6 +50,8 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
+//TODO: improvement UI - no data state in product list
+//TODO: add reset filters button
 //TODO: add limit for one item in cart
 //TODO: add tests
 //-----------------------------------------------
