@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ArtworkModel, ArtworksListSortMethod, FiltersParams } from '@/api/artworks/artworks.model';
+import { ArtworkModel, ArtworksListSortMethod, FiltersParams, RangeParams } from '@/api/artworks/artworks.model';
 
 export type ProductsState = {
   products: ArtworkModel[];
@@ -20,7 +20,7 @@ const initialState = {
     sort: 'default',
     filters: {
       category: [],
-      range: []
+      range: 'none'
     }
   }
 } as ProductsState;
@@ -54,19 +54,12 @@ const productsSlice = createSlice({
     },
     setFiltersRange: (state, action) => {
       const { value, checked } = action.payload;
-      const updatedFiltersRange: string[] = checked
-        ? [...state.params.filters.range, value]
-        : state.params.filters.range.filter((filter) => filter !== value);
+      const updatedFiltersRange: RangeParams = checked ? value : 'none';
 
       state.params.filters.range = updatedFiltersRange;
     }
   }
 });
-
-// { value: ['<20'], label: t('components.range.lower') },
-//   { value: ['>20', '<100'], label: t('components.range.middle') },
-//   { value: ['>100', '<200'], label: t('components.range.higher') },
-//   { value: ['>200'], label: t('components.range.more') }
 
 export const { setProductsData, setLoading, setError, setSort, setFiltersCategory, setFiltersRange } =
   productsSlice.actions;
