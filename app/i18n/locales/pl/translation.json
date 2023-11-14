@@ -2,7 +2,7 @@
   "page": {
     "home": {
       "button": "Zaczynamy",
-      "greetings": "Ta strona internetowa jest w trakcie budowy.",
+      "greetings": "To jest treningowa strona internetowa eSklepu",
       "technologies": "Projekt opiera się między innymi na technologiach takich jak:"
     },
     "cart": {
@@ -38,6 +38,7 @@
       "noData": "Brak danych",
       "add": "Dodaj do koszyka",
       "category": "Kategoria",
+      "range": "Przedział cenowy",
       "bestseller": "Bestseller"
     },
     "sort": {
@@ -59,6 +60,12 @@
       "premium": "Premium",
       "landmarks": "Zabytki",
       "nature": "Natura"
+    },
+    "range": {
+      "lower": "Mniej niż $20",
+      "middle": "$20 - $100",
+      "higher": "$100 - $200",
+      "more": "Więcej niż $200"
     }
   },
 

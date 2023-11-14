@@ -9,11 +9,14 @@ import CartIcon from '@/assets/shopping_cart.svg';
 import { Navigation } from '@/components/navigation';
 import { useTranslation } from '@/i18n/client';
 import { useAppSelector } from '@/redux/hooks';
+import { usePhotoLoading } from '@/hooks/usePhotoLoading';
+import { Placeholder } from '../placeholder';
 
 export const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const pathname = usePathname();
   const cart = useAppSelector((state) => state.cartReducer.cart);
+  const { onLoad, loaded, refPhoto } = usePhotoLoading();
 
   const pages = [
     {
@@ -27,12 +30,25 @@ export const Header = ({ lng }: { lng: string }) => {
   ];
 
   return (
-    <header className="border-b border-appGrayLight bg-white fixed top-0 z-20 w-full">
+    <header className="fixed top-0 z-20 w-full border-b border-appGrayLight bg-white">
       <div className="mx-auto flex max-w-screen-xl items-center justify-between p-2.5">
         <div className="flex items-center">
-          <Link href={`/${lng}`}>
-            <Image priority src={Logo} width={40} height={40} alt="Logo makaDev" className="mr-5" />
-          </Link>
+          <div className="mr-5 h-[40px] w-[40px] overflow-hidden rounded-full">
+            <Link href={`/${lng}`}>
+              <Placeholder hide={loaded} />
+              <Image
+                priority
+                ref={refPhoto}
+                onLoad={onLoad}
+                src={Logo}
+                width={40}
+                height={40}
+                alt="Logo makaDev"
+                className={`${!loaded ? 'opacity-0' : 'animate-fadeIn opacity-100'} h-full w-full object-cover`}
+              />
+            </Link>
+          </div>
+
           <Navigation pages={pages} pathname={pathname} />
         </div>
         <div className="flex items-center">

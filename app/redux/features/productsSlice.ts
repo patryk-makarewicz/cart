@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ArtworkModel, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { ArtworkModel, ArtworksListSortMethod, FiltersParams, RangeParams } from '@/api/artworks/artworks.model';
 
 export type ProductsState = {
   products: ArtworkModel[];
@@ -8,7 +8,7 @@ export type ProductsState = {
   error: boolean;
   params: {
     sort: ArtworksListSortMethod;
-    filters: string[];
+    filters: FiltersParams;
   };
 };
 
@@ -18,7 +18,10 @@ const initialState = {
   error: false,
   params: {
     sort: 'default',
-    filters: []
+    filters: {
+      category: [],
+      range: 'none'
+    }
   }
 } as ProductsState;
 
@@ -41,17 +44,24 @@ const productsSlice = createSlice({
     setSort: (state, action) => {
       state.params.sort = action.payload;
     },
-    setFilters: (state, action) => {
+    setFiltersCategory: (state, action) => {
       const { value, checked } = action.payload;
-      const updatedFilters: string[] = checked
-        ? [...state.params.filters, value]
-        : state.params.filters.filter((filter) => filter !== value);
+      const updatedFiltersCategory: string[] = checked
+        ? [...state.params.filters.category, value]
+        : state.params.filters.category.filter((filter) => filter !== value);
 
-      state.params.filters = updatedFilters;
+      state.params.filters.category = updatedFiltersCategory;
+    },
+    setFiltersRange: (state, action) => {
+      const { value, checked } = action.payload;
+      const updatedFiltersRange: RangeParams = checked ? value : 'none';
+
+      state.params.filters.range = updatedFiltersRange;
     }
   }
 });
 
-export const { setProductsData, setLoading, setError, setSort, setFilters } = productsSlice.actions;
+export const { setProductsData, setLoading, setError, setSort, setFiltersCategory, setFiltersRange } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -12,7 +12,7 @@ import { ProductsList } from '@/components/products/productsList';
 import { useFetchProducts } from '@/hooks/useFetchProducts';
 import { useTranslation } from '@/i18n/client';
 import { addToCart } from '@/redux/features/cartSlice';
-import { setFilters, setSort } from '@/redux/features/productsSlice';
+import { setFiltersCategory, setFiltersRange, setSort } from '@/redux/features/productsSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 import { Button } from '../button';
@@ -39,7 +39,12 @@ export const Products = ({ lng }: { lng: string }) => {
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    dispatch(setFilters({ value, checked }));
+    dispatch(setFiltersCategory({ value, checked }));
+  };
+
+  const handleCheckboxRangeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    dispatch(setFiltersRange({ value, checked }));
   };
 
   const onHandleFilters = () => {
@@ -78,7 +83,12 @@ export const Products = ({ lng }: { lng: string }) => {
           className="fixed -left-1 top-3 z-10 h-full w-[101%] animate-fadeIn">
           <div className="mx-auto mt-20 flex w-fit flex-col rounded-md border border-appGrayLight bg-white px-3 py-4">
             <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
-            <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
+            <FilterProducts
+              params={params}
+              handleCheckboxChange={handleCheckboxChange}
+              handleCheckboxRangeChange={handleCheckboxRangeChange}
+              lng={lng}
+            />
             <Button onClick={onHandleFilters}>{t('page.products.buttonClose')}</Button>
           </div>
         </div>
@@ -91,7 +101,12 @@ export const Products = ({ lng }: { lng: string }) => {
       </VisibleOnDesktop>
       <div className="flex h-full w-full">
         <VisibleOnDesktop>
-          <FilterProducts params={params} handleCheckboxChange={handleCheckboxChange} lng={lng} />
+          <FilterProducts
+            params={params}
+            handleCheckboxChange={handleCheckboxChange}
+            handleCheckboxRangeChange={handleCheckboxRangeChange}
+            lng={lng}
+          />
         </VisibleOnDesktop>
         <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
       </div>

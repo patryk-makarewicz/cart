@@ -5,14 +5,11 @@ import { PageWrapper } from '@/[lng]/pageWrapper';
 
 import bg from '@/assets/bg_home.jpeg';
 import LogoMakaDev from '@/assets/logo/makaDev.png';
-import LogoNext from '@/assets/logo/next.png';
-import LogoReact from '@/assets/logo/react.png';
-import LogoRedux from '@/assets/logo/redux.png';
-import LogoTailwind from '@/assets/logo/tailwind.png';
-import LogoTypescript from '@/assets/logo/ts.png';
+
 import { Button } from '@/components/button';
 import { Chatbot } from '@/components/chatbot';
 import { useTranslation } from '@/i18n';
+import { TechList } from '@/components/techList';
 
 export type lngProps = {
   params: {
@@ -22,34 +19,6 @@ export type lngProps = {
 
 const Home = async ({ params: { lng } }: lngProps) => {
   const { t } = await useTranslation(lng);
-
-  const techLogos = [
-    {
-      logo: LogoNext,
-      description: 'Next.js 14',
-      alt: 'Logo Next.js'
-    },
-    {
-      logo: LogoReact,
-      description: 'React.js 18',
-      alt: 'Logo React.js'
-    },
-    {
-      logo: LogoRedux,
-      description: 'Redux Toolkit',
-      alt: 'Logo Redux Toolkit'
-    },
-    {
-      logo: LogoTypescript,
-      description: 'TypeScript',
-      alt: 'Logo TypeScript'
-    },
-    {
-      logo: LogoTailwind,
-      description: 'Tailwind',
-      alt: 'Logo Tailwind'
-    }
-  ];
 
   return (
     <>
@@ -66,16 +35,7 @@ const Home = async ({ params: { lng } }: lngProps) => {
             <Image priority src={LogoMakaDev} width={140} height={140} alt="Logo makaDev" className="my-3" />
             <p className="text-center text-lg font-semibold">{t('page.home.greetings')}</p>
             <p className="text-center">{t('page.home.technologies')}</p>
-            <ul>
-              {techLogos.map((tech) => (
-                <li key={tech.description} className="flex items-center">
-                  <div className="my-3 mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-white p-1">
-                    <Image priority src={tech.logo} width={24} alt={tech.alt} />
-                  </div>
-                  {tech.description}
-                </li>
-              ))}
-            </ul>
+            <TechList />
             <Link href={`/${lng}/products`} className="my-3">
               <Button>{t('page.home.button')}</Button>
             </Link>
@@ -90,7 +50,8 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: add price range filters
+//TODO: improvement UI - no data state in product list
+//TODO: add reset filters button
 //TODO: add limit for one item in cart
 //TODO: add tests
 //-----------------------------------------------
