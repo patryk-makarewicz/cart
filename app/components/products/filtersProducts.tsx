@@ -1,18 +1,24 @@
 import { ChangeEvent } from 'react';
 
-import { ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import { ArtworksListSortMethod, FiltersParams } from '@/api/artworks/artworks.model';
 import { useTranslation } from '@/i18n/client';
 
 type FilterProductsProps = {
   params: {
     sort: ArtworksListSortMethod;
-    filters: string[];
+    filters: FiltersParams;
   };
   handleCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleCheckboxRangeChange: (event: ChangeEvent<HTMLInputElement>) => void;
   lng: string;
 };
 
-export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProductsProps) => {
+export const FilterProducts = ({
+  params,
+  handleCheckboxChange,
+  handleCheckboxRangeChange,
+  lng
+}: FilterProductsProps) => {
   const { t } = useTranslation(lng);
 
   const FilterOptions = [
@@ -26,10 +32,10 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
   ];
 
   const RangeOptions = [
-    { value: ['<20'], label: t('components.range.lower') },
-    { value: ['>20', '<100'], label: t('components.range.middle') },
-    { value: ['>100', '<200'], label: t('components.range.higher') },
-    { value: ['>200'], label: t('components.range.more') }
+    { value: 'lower', label: t('components.range.lower') },
+    { value: 'middle', label: t('components.range.middle') },
+    { value: 'higher', label: t('components.range.higher') },
+    { value: 'more', label: t('components.range.more') }
   ];
 
   return (
@@ -40,7 +46,7 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
           <input
             type="checkbox"
             value={option.value}
-            checked={params.filters.includes(option.value)}
+            checked={params.filters.category.includes(option.value)}
             onChange={handleCheckboxChange}
             className="mb-5 mr-3 h-5 w-5"
             style={{ accentColor: '#0369a1' }}
@@ -54,9 +60,9 @@ export const FilterProducts = ({ params, handleCheckboxChange, lng }: FilterProd
         <label key={option.value[0]} className="flex items-start">
           <input
             type="checkbox"
-            // value={option.value}
-            // checked={params.filters.includes(option.value)}
-            // onChange={handleCheckboxChange}
+            value={option.value}
+            checked={params.filters.range.includes(option.value)}
+            onChange={handleCheckboxRangeChange}
             className="mb-5 mr-3 h-5 w-5"
             style={{ accentColor: '#0369a1' }}
           />

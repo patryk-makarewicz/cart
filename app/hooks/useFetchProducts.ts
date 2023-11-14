@@ -1,25 +1,26 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+'use client';
 
-// Import useAppSelector
-import { ArtworksListDTO, ArtworksListSortMethod } from '@/api/artworks/artworks.model';
+import axios from 'axios';
+import { useEffect } from 'react';
+
+import { ArtworksListSortMethod, FiltersParams } from '@/api/artworks/artworks.model';
 import { BASE_URL, headers } from '@/api/config';
 import { setProductsData, setLoading, setError, ProductsState } from '@/redux/features/productsSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-export const useFetchProducts = (params: { sort: ArtworksListSortMethod; filters: string[] }) => {
+export const useFetchProducts = (params: { sort: ArtworksListSortMethod; filters: FiltersParams }) => {
   const dispatch = useAppDispatch();
   const {
     products: productsList,
     loading: isLoadingProducts,
     error: isErrorProducts
-  } = useAppSelector((state) => state.productsReducer); // Use useAppSelector to get data from Redux state
+  } = useAppSelector((state) => state.productsReducer);
 
   useEffect(() => {
     const fetchProducts = () => {
       const filterQuery =
-        params.filters.length > 0
-          ? `&filterByFormula=OR(${params.filters.map((filter) => `{category}="${filter}"`).join(', ')})`
+        params.filters.category.length > 0
+          ? `&filterByFormula=AND(OR(${params.filters.category.map((filter) => `{category}="${filter}"`).join(', ')}))`
           : '';
       axios
         .get(`${BASE_URL}/artworks?view=default&${params.sort}${filterQuery}`, { headers })
