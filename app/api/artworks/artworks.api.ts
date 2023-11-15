@@ -22,44 +22,29 @@ export const getArtworksList = async (params: {
 }): Promise<any> => {
   if (useAPImocks) {
     return getArtworksMock();
-  } else {
-    const categoryQuery =
-      params.filters.category.length > 0
-        ? `OR(${params.filters.category.map((filter) => `{category}="${filter}"`).join(',')})`
-        : '';
-
-    let rangeQuery = '';
-
-    switch (params.filters.range) {
-      case 'lower':
-        rangeQuery = `AND({price}<20)`;
-        break;
-      case 'middle':
-        rangeQuery = `AND({price}>20,{price}<100)`;
-        break;
-      case 'higher':
-        rangeQuery = `AND({price}>100,{price}<200)`;
-        break;
-      case 'more':
-        rangeQuery = `AND({price}>200)`;
-        break;
-      case 'none':
-        rangeQuery = ``;
-        break;
-      default:
-        rangeQuery = ``;
-        break;
-    }
-
-    const rangeFragment = categoryQuery && rangeQuery ? `,${rangeQuery}` : rangeQuery;
-
-    const response = await axios.get(
-      `${BASE_URL}/artworks?view=default&${params.sort}&filterByFormula=AND(${categoryQuery}${rangeFragment})`,
-      {
-        headers
-      }
-    );
-
-    return response.data;
   }
+
+  const { category, range } = params.filters;
+
+  const categoryQuery =
+    category.length > 0 ? `OR(${category.map((filter) => `{category}="${filter}"`).join(',')})` : '';
+  const rangeQueryOptions: { [key: string]: string } = {
+    lower: `AND({price}<20)`,
+    middle: `AND({price}>20,{price}<100)`,
+    higher: `AND({price}>100,{price}<200)`,
+    more: `AND({price}>200)`,
+    none: ``
+  };
+
+  const rangeQuery = rangeQueryOptions[range];
+  const rangeFragment = categoryQuery && rangeQuery ? `,${rangeQuery}` : rangeQuery;
+
+  const response = await axios.get(
+    `${BASE_URL}/artworks?view=default&${params.sort}&filterByFormula=AND(${categoryQuery}${rangeFragment})`,
+    {
+      headers
+    }
+  );
+
+  return response.data;
 };
