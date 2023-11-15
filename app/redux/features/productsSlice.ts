@@ -4,8 +4,8 @@ import { ArtworkModel, ArtworksListSortMethod, FiltersParams, RangeParams } from
 
 export type ProductsState = {
   products: ArtworkModel[];
-  loading: boolean;
-  error: boolean;
+  isLoading: boolean;
+  isError: boolean;
   params: {
     sort: ArtworksListSortMethod;
     filters: FiltersParams;
@@ -14,8 +14,8 @@ export type ProductsState = {
 
 const initialState = {
   products: [],
-  loading: true,
-  error: false,
+  isLoading: true,
+  isError: false,
   params: {
     sort: 'default',
     filters: {
@@ -31,15 +31,15 @@ const productsSlice = createSlice({
   reducers: {
     setProductsData: (state, action) => {
       state.products = action.payload.records;
-      state.loading = false;
-      state.error = false;
+      state.isLoading = false;
+      state.isError = false;
     },
     setLoading: (state, action) => {
-      state.loading = action.payload;
+      state.isLoading = action.payload;
     },
     setError: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
+      state.isLoading = false;
+      state.isError = action.payload;
     },
     setSort: (state, action) => {
       state.params.sort = action.payload;
