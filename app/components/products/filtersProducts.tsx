@@ -2,6 +2,9 @@ import { ChangeEvent } from 'react';
 
 import { ArtworksListSortMethod, FiltersParams } from '@/api/artworks/artworks.model';
 import { useTranslation } from '@/i18n/client';
+import { Button } from '../button';
+import { setResetFilters } from '@/redux/features/productsSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 type FilterProductsProps = {
   params: {
@@ -20,6 +23,7 @@ export const FilterProducts = ({
   lng
 }: FilterProductsProps) => {
   const { t } = useTranslation(lng);
+  const dispatch = useAppDispatch();
 
   const FilterOptions = [
     { value: 'pets', label: t('components.filters.pets') },
@@ -69,6 +73,10 @@ export const FilterProducts = ({
           {option.label}
         </label>
       ))}
+      <div className="mb-4 border-b-2 border-s-appGray" />
+      <Button kind="secondary" onClick={() => dispatch(setResetFilters())}>
+        {t('components.products.resetButton')}
+      </Button>
     </div>
   );
 };

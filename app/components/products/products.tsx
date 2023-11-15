@@ -24,7 +24,7 @@ export const Products = ({ lng }: { lng: string }) => {
 
   const dispatch = useAppDispatch();
   const { params } = useAppSelector((state) => state.productsReducer);
-  const { products, loading, error } = useFetchProducts(params);
+  const { products, isLoading, isError } = useFetchProducts(params);
 
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
@@ -55,7 +55,7 @@ export const Products = ({ lng }: { lng: string }) => {
     <div className="hidden lg:block">{children}</div>
   );
 
-  if (error) {
+  if (isError) {
     return (
       <div className="mx-auto flex w-72 flex-col rounded-md border border-appGrayLight bg-white px-3 pt-3 md:w-96">
         <div className="flex h-48 flex-col items-center justify-evenly">
@@ -89,6 +89,7 @@ export const Products = ({ lng }: { lng: string }) => {
               handleCheckboxRangeChange={handleCheckboxRangeChange}
               lng={lng}
             />
+            <div className="mb-4 mt-4 border-b-2 border-s-appGray" />
             <Button onClick={onHandleFilters}>{t('page.products.buttonClose')}</Button>
           </div>
         </div>
@@ -108,7 +109,7 @@ export const Products = ({ lng }: { lng: string }) => {
             lng={lng}
           />
         </VisibleOnDesktop>
-        <ProductsList products={products} isLoadingProducts={loading} handleAddToCart={handleAddToCart} lng={lng} />
+        <ProductsList products={products} isLoadingProducts={isLoading} handleAddToCart={handleAddToCart} lng={lng} />
       </div>
       {/* ---------- On mobile and desktop device ---------- */}
       <Chatbot lng={lng} />
