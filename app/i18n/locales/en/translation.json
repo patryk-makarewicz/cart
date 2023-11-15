@@ -39,7 +39,8 @@
       "add": "Add to cart",
       "category": "Category",
       "range": "Price range",
-      "bestseller": "Bestseller"
+      "bestseller": "Bestseller",
+      "resetButton": "Clear filters"
     },
     "sort": {
       "sortBy": "Sort by",

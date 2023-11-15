@@ -39,7 +39,8 @@
       "add": "Dodaj do koszyka",
       "category": "Kategoria",
       "range": "Przedział cenowy",
-      "bestseller": "Bestseller"
+      "bestseller": "Bestseller",
+      "resetButton": "Wyczyść filtry"
     },
     "sort": {
       "sortBy": "Sortowanie",

@@ -57,11 +57,15 @@ const productsSlice = createSlice({
       const updatedFiltersRange: RangeParams = checked ? value : 'none';
 
       state.params.filters.range = updatedFiltersRange;
+    },
+    setResetFilters: (state) => {
+      state.params.filters.category = [];
+      state.params.filters.range = 'none';
     }
   }
 });
 
-export const { setProductsData, setLoading, setError, setSort, setFiltersCategory, setFiltersRange } =
+export const { setProductsData, setLoading, setError, setSort, setFiltersCategory, setFiltersRange, setResetFilters } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
