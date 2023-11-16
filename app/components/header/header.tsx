@@ -44,6 +44,7 @@ export const Header = ({ lng }: { lng: string }) => {
                 width={40}
                 height={40}
                 alt="Logo makaDev"
+                data-testid="makaDev-logo"
                 className={`${!loaded ? 'opacity-0' : 'animate-fadeIn opacity-100'} h-full w-full object-cover`}
               />
             </Link>
@@ -52,7 +53,7 @@ export const Header = ({ lng }: { lng: string }) => {
           <Navigation pages={pages} pathname={pathname} />
         </div>
         <div className="flex items-center">
-          <Link href={`/${lng}/cart`} className=" relative mr-5">
+          <Link href={`/${lng}/cart`} className=" relative mr-5" data-testid="cart-button">
             <Image priority src={CartIcon} alt="Cart icon" className="mt-1" />
             {cart.length > 0 && (
               <div className="absolute -right-3 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-appBlue text-xs font-semibold text-white">
@@ -60,7 +61,7 @@ export const Header = ({ lng }: { lng: string }) => {
               </div>
             )}
           </Link>
-          <div className="h-8 w-8 rounded-full border-2 border-white drop-shadow-lg">
+          <div className="h-8 w-8 rounded-full border-2 border-white drop-shadow-lg" data-testid="lng-button">
             {lng === 'pl' ? (
               <Link href={pathname.replace('/pl', '/en')}>
                 <Image priority src={FlagPl} width={30} height={30} alt="Poland flag" />
