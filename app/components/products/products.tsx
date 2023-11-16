@@ -81,7 +81,7 @@ export const Products = ({ lng }: { lng: string }) => {
         <div
           style={{ backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
           className="fixed -left-1 top-3 z-10 h-full w-[101%] animate-fadeIn">
-          <div className="mx-auto mt-20 flex w-fit flex-col rounded-md border border-appGrayLight bg-white px-3 py-4">
+          <div className="mx-auto mt-20 flex max-h-[85%] w-fit flex-col overflow-y-scroll rounded-md border border-appGrayLight bg-white px-3 py-4">
             <SortProducts params={params} handleSelectSortMethod={handleSelectSortMethod} lng={lng} />
             <FilterProducts
               params={params}

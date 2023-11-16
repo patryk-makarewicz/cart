@@ -9,7 +9,7 @@ type NavigationProps = {
 };
 
 export const Navigation = ({ pages, pathname }: NavigationProps) => (
-  <nav>
+  <nav data-testid="navigation">
     {pages.map((page) => (
       <Link
         key={page.href}

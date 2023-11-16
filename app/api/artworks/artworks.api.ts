@@ -1,5 +1,5 @@
 import { getArtworksMock, getFeaturedMock } from '@/api/artworks/artworks.mock';
-import { ArtworkModel } from '@/api/artworks/artworks.model';
+import { ArtworkModel, ArtworksListDTO } from '@/api/artworks/artworks.model';
 import { BASE_URL, headers, useAPImocks } from '@/api/config';
 import axios from 'axios';
 
@@ -19,7 +19,7 @@ export const getFeatured = async (): Promise<ArtworkModel> => {
 export const getArtworksList = async (params: {
   sort: string;
   filters: { category: string[]; range: string };
-}): Promise<any> => {
+}): Promise<ArtworksListDTO> => {
   if (useAPImocks) {
     return getArtworksMock();
   }

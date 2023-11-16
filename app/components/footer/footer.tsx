@@ -24,10 +24,13 @@ export const Footer = ({ lng }: { lng: string }) => {
             width={40}
             height={40}
             alt="Logo makaDev"
+            data-testid="makaDev-logo"
             className={`${!loaded ? 'opacity-0' : 'animate-fadeIn opacity-100'} h-full w-full object-cover`}
           />
         </div>
-        <p className="text-center text-sm">{t('footer.copyright', { year: year })}</p>
+        <p className="text-center text-sm" data-testid="copyright">
+          {t('footer.copyright', { year: year })}
+        </p>
       </div>
     </footer>
   );
