@@ -1,7 +1,6 @@
 import { CartModel } from '@/api/artworks/artworks.model';
 import { Button } from '@/components/button';
 import { useTranslation } from '@/i18n/client';
-import { useState } from 'react';
 import { Spinner } from '../spinner';
 
 type SummaryProps = {
@@ -29,10 +28,10 @@ export const Summary = ({ cart, lng, resetCart, handleSendCart, isSending }: Sum
         {cart.reduce((acc, current) => acc + current.fields.price * current.quantity, 0).toFixed(2)}$
       </p>
       <div className="flex justify-center gap-4">
-        <Button onClick={resetCart} kind="secondary" disabled={isSending}>
+        <Button onClick={resetCart} kind="secondary" disabled={isSending} data-testid="reset-cart-button">
           {t('page.cart.resetCart')}
         </Button>
-        <Button onClick={() => handleSendCart(cart)} disabled={isSending}>
+        <Button onClick={() => handleSendCart(cart)} disabled={isSending} data-testid="submit-cart-button">
           {!isSending ? t('page.cart.sendCart') : <Spinner width="20px" height="20px" />}
         </Button>
       </div>

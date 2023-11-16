@@ -53,10 +53,11 @@ export default Home;
 //TODO: add limit for one item in cart
 //TODO: add terms and cookies
 //-----------------------------------------------
-//TODO: improvement UI - home tab - animate background
+//TODO: improvement UI - home tab - animate bg / repeat bg
 //TODO: improvement UI - add background in products and cart tabs
 //TODO: improvement UI - no data state in product list
 //TODO: improvement UI - cart tab
 //TODO: improvement UI - add info on send cart
 //-----------------------------------------------
 //TODO: add log in/out
+//TODO: add tests
