@@ -50,8 +50,6 @@ const Home = async ({ params: { lng } }: lngProps) => {
 export default Home;
 
 //-----------------------------------------------
-//TODO: add tests
-//-----------------------------------------------
 //TODO: add limit for one item in cart
 //TODO: add terms and cookies
 //-----------------------------------------------

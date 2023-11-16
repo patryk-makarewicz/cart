@@ -4,7 +4,7 @@ import { CartModel } from '@/api/artworks/artworks.model';
 import { Button } from '@/components/button';
 import { useTranslation } from '@/i18n/client';
 
-type CartItemProps = {
+export type CartItemProps = {
   item: CartModel;
   lng: string;
   handleAddToCart: (item: CartModel) => void;
@@ -24,13 +24,21 @@ export const CartItem = ({ item, lng, handleAddToCart, handleRemoveFromCart, isS
           {item.fields.price.toFixed(2)}$ {item.fields.currency}
         </p>
         <div className="flex items-center gap-2">
-          <Button kind="addOrRemove" onClick={() => handleAddToCart(item)} disabled={isSending}>
+          <Button
+            kind="addOrRemove"
+            onClick={() => handleAddToCart(item)}
+            disabled={isSending}
+            data-testid="add-button">
             +
           </Button>
           <p className="text-base leading-6 ">
             {t('page.cart.items')}: {item.quantity}
           </p>
-          <Button kind="addOrRemove" onClick={() => handleRemoveFromCart(item)} disabled={isSending}>
+          <Button
+            kind="addOrRemove"
+            onClick={() => handleRemoveFromCart(item)}
+            disabled={isSending}
+            data-testid="remove-button">
             -
           </Button>
         </div>
